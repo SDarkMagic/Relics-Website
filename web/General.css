@@ -1,0 +1,368 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes loopSelector {
+    0% {border-image: url(assets/CornerBorder.png) 49 repeat;}
+    50% {border-image: url(assets/CornerBorder_Blur.png) 78 repeat;}
+    100% {border-image: url(assets/CornerBorder.png) 49 repeat;}
+}
+
+@font-face {
+    font-family: Zelda_botw;
+    src: url(assets/HyliaSerifBeta-Regular.otf);
+}
+
+.hidden {
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    padding: 5px;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
+.page {
+    margin: -5px;
+    padding: 0px;
+    overflow: visible;
+}
+
+#home {
+    background-image: url(assets/PlateauStalkerStump-Ruin_blur.png);
+}
+
+#about {
+    background-image: url(assets/PlateauEntryDecayed_Blur.png);
+}
+
+#download {
+    background-image: url(assets/GuardianChaseHorse_Blur.png);
+}
+
+#team {
+    background-image: url(assets/ForgottenTemple_Blur.png);
+}
+
+#new {
+    background-image: url(assets/FortHatenoRuins_Blur.png);
+}
+
+#TeamContainer {
+    height: auto;
+    margin-bottom: 10%;
+}
+
+#ErrorPage {
+    background-image: url(assets/SheikahFlowPattern_Grey.png);
+    background-repeat: repeat;
+    background-size: 500px;
+}
+
+#ErrorPage .title {
+    color: white;
+    font-weight: 200;
+}
+
+#ErrorPage a {
+    display: block;
+    color: white;
+    font-size: 28px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    text-align: center;
+    max-width: 45%;
+}
+
+.lineBreak {
+    margin: 0px;
+    height: 1px;
+    max-width: 95%;
+    opacity: 70%;
+    border: none;
+    background-color: rgb(53, 53, 53);
+    text-align: left;
+}
+
+.navLink {
+    max-height: 200px;
+    height: inherit;
+    text-decoration: none;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: inherit;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navImg {
+    max-height: inherit;
+    height: inherit;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navItem {
+    display: inline;
+    height: 40px;
+    margin: 5px;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: 30px;
+    padding: 0px;
+    font-size: 40px;
+    font-family: Arial;
+    text-align: center;
+}
+
+.navItem:hover {
+    margin: auto;
+    margin-bottom: inherit;
+    margin-top: inherit;
+    margin-right: 25px;
+    padding: 0px;
+    border: solid;
+    border-width: 5px;
+    animation-name: loopSelector;
+    animation-duration: 2.13s;
+    animation-iteration-count: infinite;
+}
+
+#navBarList {
+    list-style-type: none;
+    margin-top: 0px;
+    margin: auto;
+    padding: 5px;
+    border: none;
+    box-shadow: 0px 4px 10px;
+    max-height: 150px;
+    height: 50px;
+    width: 100%;
+    background-image: url(assets/SheikahFlowPattern_Brown.png);
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+}
+
+.title {
+    margin: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 100px;
+    font-family: Zelda_botw;
+    font-weight: lighter;
+}
+
+.subTitle {
+    margin: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: Arial;
+    font-size: 75px;
+}
+
+.Description {
+    position: relative;
+    background-color: white;
+    width: 85%;
+    height: auto;
+    text-align: left;
+    margin: 5px;
+    margin-left: 0px;
+    margin-top: 10%;
+    margin-bottom: 10px;
+    text-indent: 10%;
+    padding: 1%;
+    padding-left: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 15px 15px 15px 2px #525252;
+    z-index: -2;
+}
+
+.memberCard {
+    margin-top: 5%;
+    padding: 5px;
+    background-color: white;
+    width: 65%;
+    max-width: 95%;
+    box-shadow: 15px 15px 15px 2px #525252;
+    max-height: 200px;
+}
+
+.memberCard .memberName {
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    vertical-align: top;
+    font-family: Zelda_botw;
+    max-width: 100%;
+    font-size: 30px;
+    font-weight: 100;
+    overflow-wrap: inherit;
+    word-wrap: inherit
+}
+
+.memberCard .memberRole {
+    margin: auto;
+    margin-top: 0px;
+    vertical-align: top;
+    opacity: 75%;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: 200;
+    overflow-wrap: inherit;
+    word-wrap: inherit;
+}
+
+.memberCard .about {
+    margin: 5px;
+    margin-left: 0px;
+    padding:0px;
+    margin-top: 10px;
+    text-align: left;
+    font-family: Arial;
+    font-weight: 300;
+    font-size: 12pt;
+    max-height: 50px;
+    overflow-y: scroll;
+    white-space: normal;
+    overflow-wrap: inherit;
+    word-wrap: inherit;
+}
+
+.memberCard .about::-webkit-scrollbar {
+    display: none;
+}
+
+.memberCard .about::-webkit-scrollbar-thumb {
+    border-radius: 50%;
+    max-height: 5px;
+    max-width: 5px;
+    background-color: black;
+    color: black;
+}
+
+.memberCard .memberImg {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.memberCard a {
+    text-decoration: none
+}
+
+.memberCard .text {
+    display: inline-block;
+    margin: 0px;
+    margin-left: 5px;
+    margin-right: 35%;
+    vertical-align: top;
+    padding: 0px;
+    max-height: 150px;
+    position: absolute;
+    word-wrap: break-word;
+}
+
+.left {
+    margin: auto;
+    margin-top: 5%;
+    margin-left: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.right {
+    margin: auto;
+    margin-top: 5%;
+    margin-right: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.right .text {
+    margin-right: 5px;
+}
+
+.DownloadButton {
+    display: block;
+    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 35%;
+    max-width: 45%;
+}
+
+.DownloadButton:hover {
+    cursor: pointer;
+    filter: brightness(50%);
+}
+
+.buttonTxt {
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.buttonIco {
+    height: 50px;
+}
+
+#NX {
+    background-color: red;
+}
+
+#WiiU{
+    background-color: white;
+}
+
+.centeredContainer {
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    height: auto;
+    max-width: 95%;
+    border-radius: 10px;
+    background-color: #CECAC4;
+    box-shadow: 15px 15px 15px 2px #525252;
+    display: block;
+}
