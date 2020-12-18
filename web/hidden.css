@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Zelda_nes;
+    src: url(./assets/the-legend-of-zelda-nes.ttf);
+}
+
+.title {
+    font-family: Zelda_nes;
+}

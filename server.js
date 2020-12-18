@@ -59,9 +59,9 @@ server.get('/NX-Beta_public', (req, res) => {
 
 
 // Sends the user to the hidden place
-server.get('/AFE1278D54216B3D64FA0404A15928D148E86F5585CA7018D24867EAFB9C8F4A', (req, res) => {
+server.get('/hidden', (req, res) => {
     console.log(__dirname)
-    res.sendFile(`${__dirname}/web/assets/ModFiles/NX/hidden.html`)
+    res.sendFile(`${__dirname}/web/hidden.html`)
 });
 
 // Starts the server
