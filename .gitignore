@@ -5,4 +5,5 @@
 *.json
 !package.json
 !package-lock.json
+!NavBar.json
 /node_modules

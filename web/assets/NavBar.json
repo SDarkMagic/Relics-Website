@@ -1,0 +1,22 @@
+{
+    "Home": {
+        "url": "home",
+        "ico": "assets/Logo.png"
+    },
+    "The Team": {
+        "url": "team",
+        "ico": null
+    },
+    "About": {
+        "url": "about",
+        "ico": null
+    },
+    "News": {
+        "url": "news",
+        "ico": null
+    },
+    "Download": {
+        "url": "download",
+        "ico": null
+    }
+}

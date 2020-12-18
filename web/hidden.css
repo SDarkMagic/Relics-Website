@@ -5,4 +5,9 @@
 
 .title {
     font-family: Zelda_nes;
+    color: white;
+}
+
+#hidden {
+    background-image: url(./assets/DangerousToGoAlone_Room.png);
 }
