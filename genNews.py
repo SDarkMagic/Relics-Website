@@ -15,7 +15,7 @@ def updatePastNews():
         pastNews = json.loads(readPastNewsFile.read())
 
     newsKey = news.get('Title')
-    pastNews.update({newsKey: {'News': news.get('News'), 'Date': news.get('Date')}})
+    pastNews.update({newsKey: {'News': news.get('News'), 'Date': news.get('Date'), 'Author': news.get('Author')}})
 
     with open('./web/assets/PastNews.json', 'wt') as writePastNewsFile:
         writePastNewsFile.write(json.dumps(pastNews, indent=2))

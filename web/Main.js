@@ -1,12 +1,15 @@
+const { request } = require("express");
+
 var IdList = [];
 
 // Requests the navBar json from the server
 function requestPageJson(fileRequest, callBack) {
     var xhttp = new XMLHttpRequest()
+    var fileName = fileRequest.split('/')
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             jsonOut = JSON.parse(xhttp.responseText);
-            callBack(jsonOut);
+            callBack(jsonOut, fileName);
         }
     }
     xhttp.open('GET', fileRequest, true);
@@ -109,6 +112,29 @@ function genNavBar(navBarData) {
     navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul>`
 }
 
+// Generates and sets innerHTML of the news section
+function updateNews(newsJson, fileName) {
+    var title;
+    var date;
+    var author;
+    var content;
+    var pageElement = document.getElementById('newsContainer');
+    if (fileName == 'News.json') {
+        title = newsJson['Title'];
+        date = newsJson['Date'];
+        author = newsJson['Author'];
+        content = newsJson['News'];
+    }
+    else if (fileName == 'PastNews.json') {
+        
+    }
+    else {
+        return
+    };
+
+    var formatData = null;
+};
+
 // Checks if a string is null or not and then adds to it accordingly
 function checkNullAppend(dataToCheck, valueToAppend){
     if (dataToCheck == null){
@@ -134,8 +160,16 @@ window.onload = function() {
     console.log('Loaded page!')
     requestPageJson('/assets/NavBar.json', genNavBar)
     console.log('Generated NavBar successfully')
+
     try {
         requestPageJson('/assets/TeamMembers.json', setTeam)
+    }
+    catch {
+        //pass
+    };
+
+    try {
+        requestPageJson('/assets/News.json', updateNews)
     }
     catch {
         //pass

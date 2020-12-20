@@ -21,6 +21,11 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     src: url(assets/HyliaSerifBeta-Regular.otf);
 }
 
+@font-face {
+    font-family: KommonGrotesque_Italic;
+    src: url(assets/Kommon\ Grotesk\ Regular\ Italic.otf);
+}
+
 .hidden {
     visibility: hidden;
     height: 0px;
@@ -133,7 +138,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     margin-right: 30px;
     padding: 0px;
     font-size: 40px;
-    font-family: Arial;
+    font-family: KommonGrotesque_Italic;
     text-align: center;
 }
 
