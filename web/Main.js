@@ -1,5 +1,3 @@
-const { request } = require("express");
-
 var IdList = [];
 
 // Requests the navBar json from the server
