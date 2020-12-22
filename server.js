@@ -23,14 +23,20 @@ server.get('/', (req, res) => {
 
 // Attempts to forward any requests from /{var} to a corresponding HTML page
 server.get('/:pageName', (req, res) => {
-    pageName = req.params['pageName']
-    page = `${__dirname}/web/${pageName}.html`
+    var pageName = req.params['pageName']
+    var page = `${__dirname}/web/${pageName}.html`
     if (fs.existsSync(page)) {
         res.sendFile(page)
     }
     else {
         res.status(404).sendFile(`${__dirname}/web/404.html`)
     };
+});
+
+// Attempts to get and return proper past news articles
+server.get('/news/:article', (res, req) => {
+    var articleTitle = req.params['article']
+    var page = `${__dirname}/web/news.html`
 });
 
 // Sends the official WiiU release build Zip

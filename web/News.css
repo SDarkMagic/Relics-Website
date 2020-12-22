@@ -1,0 +1,43 @@
+#newsContainer {
+    padding: 2px;
+    margin: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.date {
+    font-size: 16px;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    opacity: 0.75;
+    letter-spacing: 1px;
+}
+
+.articleTitle {
+    margin: 5px;
+    font-family: Zelda_botw;
+    font-weight: 100;
+    font-size: 30px;
+    text-align: left;
+}
+
+.author {
+    margin: 2px;
+    text-align: left;
+    font-size: 18px;
+    font-family: KommonGrotesque_Italic;
+    opacity: 0.85;
+}
+
+.article {
+    font-family: arial;
+    font-size: 12px;
+}
+
+.pastNewsContainer {
+    max-height: 25%;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+  }

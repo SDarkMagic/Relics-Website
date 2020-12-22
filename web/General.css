@@ -371,12 +371,3 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     box-shadow: 15px 15px 15px 2px #525252;
     display: block;
 }
-
-.pastNewsContainer {
-  max-height: 25%;
-  width: 95%;
-  background-color: white;
-  margin-right: auto;
-  margin-left: auto;
-  height: 500px;
-}
