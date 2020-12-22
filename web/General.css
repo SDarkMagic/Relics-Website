@@ -330,11 +330,23 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     padding: 5px;
     width: 35%;
     max-width: 45%;
+    transition-duration: 0.25s;
 }
 
 .DownloadButton:hover {
     cursor: pointer;
-    filter: brightness(50%);
+    filter: brightness(75%);
+    
+}
+
+.DownloadButton:hover > .buttonIco {
+    cursor: pointer;
+    filter: brightness((100/.75)%);
+    
+}
+
+.DownloadButton:focus {
+    outline: none;
 }
 
 .buttonTxt {
@@ -349,6 +361,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 .buttonIco {
     height: 50px;
+    transition-duration: 0.25s;
 }
 
 #NX {
