@@ -1,5 +1,7 @@
 # Generates the news file off of a text file (very simple script, I'm just lazy XD)
 import json
+import sys
+import pathlib
 import datetime
 
 def getCurrentDate():
@@ -20,6 +22,22 @@ def updatePastNews():
     with open('./web/assets/PastNews.json', 'wt') as writePastNewsFile:
         writePastNewsFile.write(json.dumps(pastNews, indent=2))
 
+def writeCurrentNews(title, author):
+    if pathlib.Path('./article.txt').exists():
+        with open('./article.txt', 'rt') as article:
+            newsArticle = article.read()
+    else:
+        newsArticle = 'Beep Boop, This article has been destroyed by guardians.'
+
+    with open('./web/assets/News.json', 'rt') as readNewsJson:
+        newsData = json.loads(readNewsJson.read())
+        newsData.clear()
+        newsData.update({"Title": title, "Author": author, "Date": getCurrentDate(), "News": newsArticle})
+
+    with open('./web/assets/News.json', 'wt') as writeNewsJson:
+        writeNewsJson.write(json.dumps(newsData, indent=2))
+
 if __name__ == "__main__":
     updatePastNews()
+    writeCurrentNews(sys.argv[1], sys.argv[2])
     print(getCurrentDate())
