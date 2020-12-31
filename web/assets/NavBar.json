@@ -7,6 +7,10 @@
         "url": "team",
         "ico": null
     },
+    "Special Thanks": {
+        "url": "thanks",
+        "ico": null
+    },
     "About": {
         "url": "about",
         "ico": null

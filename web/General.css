@@ -341,7 +341,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 .DownloadButton:hover > .buttonIco {
     cursor: pointer;
-    filter: brightness((100/.75)%);
+    filter: brightness((100/.75));
     
 }
 

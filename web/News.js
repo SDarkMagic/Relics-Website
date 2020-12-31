@@ -80,4 +80,56 @@ function HTMLFormat(title, author, date, content){
     return htmlData
 };
 
+function genPastArticles(jsonData){
+    var articles = {};
+    var HTMLData = null;
+
+    for (var title in jsonData) {
+        var date = jsonData[title]['Date']
+        articles[title] = date;
+    };
+    if (Object.keys(articles).length == 0) {
+        document.getElementById("more").innerHTML = null
+    }
+    else if (Object.keys(articles).length <= 3) {
+        for (var article in articles) {
+            console.log(article)
+            var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
+            HTMLData = checkNullAppend(HTMLData, articleHTML)
+        }
+    }
+    else {
+        var i = 1;
+        var showArticles = [];
+        var newArticle;
+        while (i <= 3) {
+            newArticle = Object.keys(articles)[~~(Math.random() * Object.keys(articles).length)]
+            if (showArticles.includes(newArticle)) {
+                i=i
+            }
+            else {
+                showArticles.push(newArticle)
+                i++
+            }
+            console.log(showArticles)
+        }
+        for (var article of showArticles) {
+            var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
+            HTMLData = checkNullAppend(HTMLData, articleHTML)
+        }
+    };
+    document.getElementById("pastNewsContainer").innerHTML = HTMLData
+}
+
+// Checks if a string is null or not and then adds to it accordingly
+function checkNullAppend(dataToCheck, valueToAppend){
+    if (dataToCheck == null){
+        return valueToAppend
+    }
+    else {
+        return (dataToCheck + valueToAppend)
+    };
+}
+
 handleQuery()
+requestNewsJson('assets/PastNews.json', genPastArticles)

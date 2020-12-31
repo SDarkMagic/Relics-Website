@@ -35,9 +35,45 @@
     font-size: 12px;
 }
 
-.pastNewsContainer {
+#pastNewsContainer {
     max-height: 25%;
     width: 95%;
     margin-right: auto;
     margin-left: auto;
-  }
+}
+
+#more {
+    font-family: Tahoma;
+    font-size: 24px;
+    margin-left: 6.75%;
+}
+
+.moreNews_Title {
+    display: inline;
+    font-size: 25px;
+    font-family: KommonGrotesque_Italic;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.moreNews_Link {
+    text-decoration: none;
+    color: black;
+}
+
+.moreNews_Date {
+    display: inline;
+    font-size: 20px;
+    font-family: KommonGrotesque_Italic;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    opacity: .65;
+    float: right;
+    vertical-align: text-bottom;
+}
+
+.moreNews_Link:hover .centeredContainer {
+    box-shadow: 15px 15px 15px 2px #1b1b1b;
+}
