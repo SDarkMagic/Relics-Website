@@ -73,6 +73,10 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     background-image: url(assets/FortHatenoRuins_Blur.png);
 }
 
+#thanks {
+    background-image: url(assets/ForgottenTempleEntrance_Blur.png);
+}
+
 #TeamContainer {
     height: auto;
     margin-bottom: 10%;
@@ -336,13 +340,13 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .DownloadButton:hover {
     cursor: pointer;
     filter: brightness(75%);
-    
+
 }
 
 .DownloadButton:hover > .buttonIco {
     cursor: pointer;
     filter: brightness((100/.75));
-    
+
 }
 
 .DownloadButton:focus {
