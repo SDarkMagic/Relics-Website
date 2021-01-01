@@ -1,0 +1,56 @@
+{
+    "ShadowMarth-JTW": {
+        "image": "assets/UserIcons/ShadowMarth.png",
+        "role": "Project Lead/Manager [Mod Creator]",
+        "about": "Guardians are pretty cool tbh",
+        "PrimLink": "https://www.youtube.com/watch?v=4FE1sd2fWIw"
+    },
+    "The Legend of Sam": {
+        "image": "assets/UserIcons/LegendOfSam.png",
+        "role": "Switch Tester, Lead Switch Tester",
+        "about": "An artist, writer, avid The Legend of Zelda fan, and tester of all things Breath of the Wild related on the Nintendo Switch. Sam has made his own simple mods for the Switch version of Breath of the Wild and has even helped write a side quest for another Breath of the Wild modding project...",
+        "PrimLink": "https://media.tenor.com/images/78edbb1f8c34b17b20e9e0987914001e/tenor.gif"
+    },
+    "Samuel": {
+        "image": "assets/UserIcons/Samuel.png",
+        "role": "Graphical Artist",
+        "about": "Hello! I am Samuel and I draw concept art for the project. I hope you enjoy your stay and the mod!",
+        "PrimLink": "https://www.instagram.com/samu_wel_elsch/"
+    },
+    "Cakes": {
+        "image": "assets/UserIcons/Cakes.png",
+        "role": "WiiU/Cemu Tester",
+        "about": "A frequent tester/ and a new coming modder for games like botw and persona 5. I also test games themselves and I have tested a few so far.",
+        "PrimLink": "https://gamebanana.com/members/1694872"
+    },
+    "Greenlord": {
+        "image": "assets/UserIcons/Greenlord.png",
+        "role": "Section Editor",
+        "about": "Hey! I'm Greenlord. I edit sections for Relics, and I really love adding peaceful spots for the player to enjoy - though I often throw a bunch sleeping guardians at the player to balance that out. I'm also working on a Breath of the Wild map editor with some people.",
+        "PrimLink": "https://www.youtube.com/channel/UCNarQvqa5KWE1vtswQzYDtw"
+    },
+    "Terukosan": {
+        "image": "assets/UserIcons/Terukosan.png",
+        "role": "WiiU/Cemu Tester",
+        "about": "Hello there, I'm Terukosan I'm a beta tester for Relics of the Past, I got into the project when ShadowMarth was watching me stream Relics randomly one day, I don't really know what else to say, but I really enjoy being a tester on this project and hope to help more one day!",
+        "PrimLink": ""
+    },
+    "DreamFeather": {
+        "image": "assets/UserIcons/DreamFeather.png",
+        "role": "WiiU/Cemu Tester",
+        "about": "I've always been really into combat in Breath of the Wild pretty much what I did most of the time playing the game. I started getting tired of fighting the same enemy camps and used mods to make the game more interesting and that's how I found Relics of the Past.",
+        "PrimLink": "https://www.youtube.com/channel/UCtS8MWNFCFMFbOQGwBTX1WQ"
+    },
+    "KirbyDaGamerPuff": {
+        "image": "assets/UserIcons/Kirby.png",
+        "role": "Modeler, Shrine/Divine Beast Editor",
+        "about": "Things may be hard, but success makes it that much more gratifying",
+        "PrimLink": "https://www.twitch.tv/kirbydagamerpuff"
+    },
+    "SDarkMagic": {
+        "image": "assets/UserIcons/SDarkMagic.png",
+        "role": "Section Editor, Web Developer",
+        "about": "I enjoy creating situations of mass chaos in this game...",
+        "PrimLink": "https://www.twitch.tv/sdarkmagic"
+    }
+}

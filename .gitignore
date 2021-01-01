@@ -6,5 +6,7 @@
 !package.json
 !package-lock.json
 !NavBar.json
+!TeamMembers.json
 /node_modules
 .replit
+article.txt
