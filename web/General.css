@@ -288,9 +288,19 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .memberCard a {
-    text-decoration: none
+    text-decoration: none;
+    border: none;
 }
-
+/*
+.memberCard a:hover {
+    border: filter(invert);
+    border: solid;
+    border-width: 5px;
+    animation-name: loopSelector;
+    animation-duration: 2.13s;
+    animation-iteration-count: infinite;
+}
+*/
 .memberCard .text {
     display: inline-block;
     margin: 0px;
