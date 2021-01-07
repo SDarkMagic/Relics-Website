@@ -27,6 +27,8 @@ def writeCurrentNews(title, author):
     if pathlib.Path('./article.txt').exists():
         with open('./article.txt', 'rt') as article:
             newsArticle = article.read()
+        with open('./article.txt', 'wt') as wipeArticle:
+            wipeArticle.write('')
     else:
         newsArticle = 'Beep Boop, This article has been destroyed by guardians.'
 
@@ -55,6 +57,6 @@ if __name__ == "__main__":
     pastNewsFile = pathlib.Path('./web/assets/PastNews.json')
     updatePastNews()
     writeCurrentNews(sys.argv[1], sys.argv[2])
-    print(getCurrentDate())
+    print(f'{getCurrentDate()}\n')
     uploadNewsFiles(currentNewsFile.name, currentNewsFile)
     uploadNewsFiles(pastNewsFile.name, pastNewsFile)
