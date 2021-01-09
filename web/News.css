@@ -34,7 +34,7 @@
 
 .article {
     font-family: arial;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #pastNewsContainer {
@@ -61,6 +61,10 @@
 .moreNews_Link {
     text-decoration: none;
     color: black;
+}
+
+.moreNews_Link .centeredContainer {
+    margin-bottom: 50px;
 }
 
 .moreNews_Date {
