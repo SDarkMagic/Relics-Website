@@ -94,7 +94,7 @@ function genPastArticles(jsonData){
     else if (Object.keys(articles).length <= 3) {
         for (var article in articles) {
             console.log(article)
-            var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
+            var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link" title="${article}"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
             HTMLData = checkNullAppend(HTMLData, articleHTML)
         }
     }
@@ -114,7 +114,7 @@ function genPastArticles(jsonData){
             console.log(showArticles)
         }
         for (var article of showArticles) {
-            var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
+            var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link" title="${article}"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
             HTMLData = checkNullAppend(HTMLData, articleHTML)
         }
     };

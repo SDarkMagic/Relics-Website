@@ -4,6 +4,27 @@ import sys
 import pathlib
 import ftplib
 import datetime
+import discord
+import asyncio
+
+async def sendDiscordUpdate(articleName, authorName):
+    bot = discord.Client()
+    with open('privars.json', 'rt') as readEnv:
+        data = json.loads(readEnv.read()).get('Discord')
+        token = data.get('Token')
+        channelId = int(data.get('Channel'))
+
+    @bot.event
+    async def on_ready():
+        print(f'{bot.user} Connected to Discord')
+        channel = bot.get_channel(channelId)
+        await channel.send(content=f'The News page on the official Relics of the Past website has been updated! There is a new article called {articleName}, written by {authorName}. You can read it by going to https://relicsofthepast.dev/news')
+        await bot.close()
+        await bot.logout()
+
+    await bot.login(token)
+    await bot.connect()
+
 
 def getCurrentDate():
     today = datetime.date.today()
@@ -60,3 +81,5 @@ if __name__ == "__main__":
     print(f'{getCurrentDate()}\n')
     uploadNewsFiles(currentNewsFile.name, currentNewsFile)
     uploadNewsFiles(pastNewsFile.name, pastNewsFile)
+    asyncio.run(sendDiscordUpdate(sys.argv[1], sys.argv[2]))
+    print('Discord message sent; News updated successfully.\nTerminating...')
