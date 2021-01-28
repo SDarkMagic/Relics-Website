@@ -378,11 +378,11 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     transition-duration: 0.25s;
 }
 
-#NX {
+.NX {
     background-color: red;
 }
 
-#WiiU{
+.WiiU{
     background-color: white;
 }
 
