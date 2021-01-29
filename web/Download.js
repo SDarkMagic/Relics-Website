@@ -27,6 +27,8 @@ function setDownloads(downloadsObject) {
         'NXBetaDownloads': 'NXBeta'
     }
     for (var id in Object.keys(elementIDs)){
+      id = Object.keys(elementIDs)[Object.keys(elementIDs).findIndex(id)]
+      console.log('This is just logging stuff', id)
         let element = document.getElementById(id)
         element.innerText = downloadsObject[elementIDs[id]]
     };
@@ -48,3 +50,4 @@ function SetupListeners(){
 };
 
 // These ones handle updating the download counters
+window.addEventListener('load', requestJson('./assets/DownloadCounts.json', setDownloads))
