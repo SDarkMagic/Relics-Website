@@ -18,7 +18,7 @@ async def sendDiscordUpdate(articleName, authorName):
     async def on_ready():
         print(f'{bot.user} Connected to Discord')
         channel = bot.get_channel(channelId)
-        await channel.send(content=f'The News page on the official Relics of the Past website has been updated! There is a new article called {articleName}, written by {authorName}. You can read it by going to https://relicsofthepast.dev/news')
+        await channel.send(content=f'The News page on the official Relics of the Past website has been updated! There is a new article called "{articleName}", written by {authorName}. You can read it by going to https://relicsofthepast.dev/news')
         await bot.close()
         await bot.logout()
 
