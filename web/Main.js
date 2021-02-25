@@ -55,4 +55,6 @@ window.onload = function() {
     console.log('Loaded page!')
     requestPageJson('/assets/NavBar.json', genNavBar)
     console.log('Generated NavBar successfully')
+    console.warn(window.innerWidth)
+    console.warn(window.innerHeight)
 }
