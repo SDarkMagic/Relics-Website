@@ -5,6 +5,12 @@
         "about": "Guardians are pretty cool tbh",
         "PrimLink": "https://www.youtube.com/watch?v=4FE1sd2fWIw"
     },
+    "SDarkMagic": {
+        "image": "assets/UserIcons/SDarkMagic.png",
+        "role": "Assistant Team Leader",
+        "about": "I enjoy creating situations of mass chaos in this game...",
+        "PrimLink": "https://www.twitch.tv/sdarkmagic"
+    },
     "The Legend of Sam": {
         "image": "assets/UserIcons/LegendOfSam.png",
         "role": "Switch Tester, Lead Switch Tester",
@@ -46,11 +52,5 @@
         "role": "Modeler, Shrine/Divine Beast Editor",
         "about": "Things may be hard, but success makes it that much more gratifying",
         "PrimLink": "https://www.twitch.tv/kirbydagamerpuff"
-    },
-    "SDarkMagic": {
-        "image": "assets/UserIcons/SDarkMagic.png",
-        "role": "Section Editor, Web Developer",
-        "about": "I enjoy creating situations of mass chaos in this game...",
-        "PrimLink": "https://www.twitch.tv/sdarkmagic"
     }
 }

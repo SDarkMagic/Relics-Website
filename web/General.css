@@ -108,7 +108,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .lineBreak {
     margin: 0px;
     height: 1px;
-    max-width: 95%;
+    width: 95%;
     opacity: 70%;
     border: none;
     background-color: rgb(53, 53, 53);
@@ -372,7 +372,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .right .text {
-    margin-right: 5px;
+    margin-right: auto;
 }
 
 .DownloadButton {

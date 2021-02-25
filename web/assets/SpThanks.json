@@ -1,0 +1,14 @@
+{
+    "Radiarc": {
+        "image": "assets/UserIcons/Radiarc.png",
+        "reason": "Guardian Theme Remix",
+        "about": "I'm a freelance composer that specializes in battle themes and sad music.",
+        "PrimLink": "https://www.youtube.com/channel/UC-9EwITgSClSE5S69O1MlyA"
+    },
+    "OVERSKY": {
+        "image": "assets/UserIcons/OVERSKY.png",
+        "reason": "Relic's Theatrical Trailer",
+        "about":  "Editor",
+        "PrimLink": "https://youtube.com/c/OVERSKYO"
+    }
+}
