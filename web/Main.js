@@ -27,7 +27,7 @@ function genNavBar(navBarData) {
             navBarDataOut = checkNullAppend(navBarDataOut, newData)
         };
     };
-    navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul>`
+    navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul><div id="mobileNavBar"></div>`
 }
 
 // Checks if a string is null or not and then adds to it accordingly

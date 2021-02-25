@@ -159,20 +159,32 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     animation-iteration-count: infinite;
 }
 
+#NavBar {
+  margin: auto;
+  margin-top: 0px;
+  padding: 0px;
+  border: none;
+  box-shadow: 0px 4px 10px;
+  max-height: 150px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-image: url(assets/SheikahFlowPattern_Brown.png);
+}
+
 #navBarList {
     list-style-type: none;
-    margin-top: 0px;
-    margin: auto;
-    padding: 5px;
-    border: none;
-    box-shadow: 0px 4px 10px;
-    max-height: 150px;
     height: 55px;
-    width: 100%;
-    background-image: url(assets/SheikahFlowPattern_Brown.png);
-    position: fixed;
-    top: 0px;
-    z-index: 5;
+}
+
+#mobileNavBar {
+  display: none;
+}
+
+@media screen and (max-width: 2000px){
+  #navBarList {
+    /*background-image: url(assets/SheikahFlowPattern_Blue.png);*/
+  }
 }
 
 .title {
