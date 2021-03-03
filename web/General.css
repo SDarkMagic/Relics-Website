@@ -179,11 +179,24 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 #mobileNavBar {
   display: none;
+    float: right;
+    background-color: white;
+    width: 5vw;
+    height: 5vw;
+    margin: 5px;
+    margin-right: 1vw;
+}
+
+#mobileNavBarList {
+  display: none;
 }
 
 @media screen and (max-width: 2000px){
   #navBarList {
-    /*background-image: url(assets/SheikahFlowPattern_Blue.png);*/
+    display: none;
+  }
+  #mobileNavBar {
+    display: block;
   }
 }
 
