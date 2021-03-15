@@ -31,7 +31,7 @@ function genNavBar(navBarData) {
         newMobileData = `<li class="navItem"><a href="${navBarData[entry]['url']}" class="navLink">${entry}</a></li>`
         mobileNavBarDataOut = checkNullAppend(mobileNavBarDataOut, newMobileData)
     };
-    navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul><div id="mobileNavBar"><ul id="mobileNavBarList">${mobileNavBarDataOut}</ul></div>`
+    navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul><div id="mobileNavBar" onclick="showDropDown('mobileNavBarList')"></div></div><ul id="mobileNavBarList">${mobileNavBarDataOut}</ul><div id="empty">`
 }
 
 // Checks if a string is null or not and then adds to it accordingly
@@ -52,6 +52,17 @@ function imgFail(imgTagID, altImgPath) {
 // Function for downloading files
 function download(fileName) {
     window.location.href = fileName
+};
+
+// Only for the mobile nav bar; displays the navbar when the hamburger is clicked
+function showDropDown(dropDownId) {
+  var element = document.getElementById(dropDownId)
+  if (element.style.display === "block"){
+    element.style.display = "none";
+  }
+  else {
+    element.style.display = "block"
+  }
 };
 
 // Code run when window the script is running from is loaded
