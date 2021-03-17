@@ -16,7 +16,9 @@ function requestPageJson(fileRequest, callBack) {
 function genNavBar(navBarData) {
     var navBar = document.getElementById('NavBar');
     var navBarDataOut = null;
+    var mobileNavBarDataOut;
     var newData;
+    var newMobileData;
     for (var entry in navBarData) {
         if (navBarData[entry]['ico'] != null){
             newData = `<li class="navItem"><a href="${navBarData[entry]['url']}" class="navLink"><img src="${navBarData[entry]['ico']}" class="navImg" alt="${entry}" title="${entry}"></a></li>`;
@@ -26,8 +28,10 @@ function genNavBar(navBarData) {
             newData = `<li class="navItem"><a href="${navBarData[entry]['url']}" class="navLink">${entry}</a></li>`;
             navBarDataOut = checkNullAppend(navBarDataOut, newData)
         };
+        newMobileData = `<li class="navItem"><a href="${navBarData[entry]['url']}" class="navLink">${entry}</a></li>`
+        mobileNavBarDataOut = checkNullAppend(mobileNavBarDataOut, newMobileData)
     };
-    navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul><div id="mobileNavBar"></div>`
+    navBar.innerHTML = `<ul id="navBarList">${navBarDataOut}</ul><div id="mobileNavBar" onclick="showDropDown('mobileNavBarList')"></div></div><ul id="mobileNavBarList">${mobileNavBarDataOut}</ul><div id="empty">`
 }
 
 // Checks if a string is null or not and then adds to it accordingly
@@ -48,6 +52,17 @@ function imgFail(imgTagID, altImgPath) {
 // Function for downloading files
 function download(fileName) {
     window.location.href = fileName
+};
+
+// Only for the mobile nav bar; displays the navbar when the hamburger is clicked
+function showDropDown(dropDownId) {
+  var element = document.getElementById(dropDownId)
+  if (element.style.display === "block"){
+    element.style.display = "none";
+  }
+  else {
+    element.style.display = "block"
+  }
 };
 
 // Code run when window the script is running from is loaded
