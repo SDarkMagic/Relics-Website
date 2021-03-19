@@ -65,6 +65,12 @@ function showDropDown(dropDownId) {
   }
 };
 
+function debug_getHeight(elementGetId, dataElement) {
+  var debugElement = document.getElementById(elementGetId)
+  var dataDisplayElement = document.getElementById(dataElement)
+  dataDisplayElement.innerText = debugElement.clientWidth
+}
+
 // Code run when window the script is running from is loaded
 window.onload = function() {
     console.log('Loaded page!')
@@ -72,4 +78,5 @@ window.onload = function() {
     console.log('Generated NavBar successfully')
     console.warn(window.innerWidth)
     console.warn(window.innerHeight)
+    debug_getHeight('NavBar',"Debug")
 }

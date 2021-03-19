@@ -20,7 +20,11 @@ function download(fileName) {
 
 // Function for updating the download counters
 function updateDLCounter(dlCountToUpdate){
-    console.log(requestJson('./assets/DownloadCounts.json', passData))
+  var xhttp = new XMLHttpRequest();
+  console.log(requestJson('./assets/DownloadCounts.json', passData))
+  xhttp.open('POST', './WriteDownloadCounter.php', true)
+  xhttp.setRequestHeader('Content-Type', 'application/json');
+  xhttp.send({"FileName": "./assets/DownloadCounter.json", "JSON": dlCountToUpdate})
 };
 
 // Requests data from a json file serverside
@@ -61,10 +65,10 @@ function SetupListeners(){
     officialNX.addEventListener("click", download('NX-Release'), false);
 
     // These are the ones for updating the download counters themselves
-    //for (var id in Object.keys(elementIDs)){
-      //  id = Object.keys(elementIDs)[id]
-        //document.getElementById(id).addEventListener('click', updateDLCounter(elementIDs[id]), false)
-      //};
+    for (var id in Object.keys(elementIDs)){
+        id = Object.keys(elementIDs)[id]
+        document.getElementById(id).addEventListener('click', updateDLCounter(elementIDs[id]), false)
+      };
 };
 
 // These ones handle updating the download counters
