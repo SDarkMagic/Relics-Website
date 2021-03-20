@@ -85,9 +85,10 @@ function genPastArticles(jsonData){
     var HTMLData = null;
 
     for (var title in jsonData) {
-        var date = jsonData[title]['Date']
+        let date = jsonData[title]['Date']
         articles[title] = date;
     };
+    console.log(articles)
     if (Object.keys(articles).length == 0) {
         document.getElementById("more").innerHTML = null
     }
@@ -111,9 +112,10 @@ function genPastArticles(jsonData){
                 showArticles.push(newArticle)
                 i++
             }
-            console.log(showArticles)
         }
+        console.log(showArticles)
         for (var article of showArticles) {
+            let title = article;
             var articleHTML = `<a href="/news?article=${article}" class="moreNews_Link" title="${article}"><div class="centeredContainer" style="width: 85%;"><h1 class="moreNews_Title">${article}</h1><h1 class="moreNews_Date">${articles[title]}</h1></div></a>`
             HTMLData = checkNullAppend(HTMLData, articleHTML)
         }

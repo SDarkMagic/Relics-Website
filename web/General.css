@@ -210,7 +210,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 #mobileNavBar:hover {
-  
+
 }
 
 #mobileNavBarList .navItem {
@@ -220,7 +220,12 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   font-size: 2vw;
 }
 
-@media screen and (max-width: 1024px){
+#mobileNavBarList .navLink {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1145px){
   .navItem:hover {
       margin: auto;
       margin-bottom: inherit;
@@ -238,6 +243,9 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   }
   #mobileNavBar {
     display: block;
+  }
+  #mobileNavBar:hover {
+    cursor: pointer;
   }
 }
 
