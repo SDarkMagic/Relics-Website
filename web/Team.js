@@ -47,6 +47,7 @@ function setTeam(team) {
     teamContainer.innerHTML = data;
 };
 
+
 function formatMemberData(team, Member, isEven) {
     var member = team[Member];
     var memberName = Object.keys(team).find(Member => team[Member] === member);
@@ -76,7 +77,7 @@ function formatMemberData(team, Member, isEven) {
             <hr class="lineBreak">
             <p class='about'>${team[Member]["about"]}</p>
         </div>\n`
-        
+
     /*if (team[Member]['links'] != null || team[Member]['links'] != {}) {
         var linkList = `<ul id='memberLinks>`;
         for (var link in team[Member]['links']){
@@ -90,7 +91,7 @@ function formatMemberData(team, Member, isEven) {
             };
             linkTxt = `<a href="${link}">${imgPath} ${link}</a>`
             checkNullAppend(linkList, linkTxt)
-        }  
+        }
         formattedHTML = formattedHTML + linkList + `</ul></div>\n`
     }
     else {

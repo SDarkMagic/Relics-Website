@@ -52,5 +52,29 @@
         "role": "Modeler, Shrine/Divine Beast Editor",
         "about": "Things may be hard, but success makes it that much more gratifying",
         "PrimLink": "https://www.twitch.tv/kirbydagamerpuff"
+    },
+    "JWDragair": {
+        "image": "assets/UserIcons/JWDragair.png",
+        "role": "Section Editor",
+        "about": "Hi, I'm JW. Zelda is my favorite game series, and I'm super into Kaizo Mario. Remember when Nintendo games were super hard? I remember. Breath of the Wild was hard, but not *quite* hard enough. Step into my desert and feel the harsh sun beat down upon your brow. The dangers are many, and you are never safe. But maybe you'll find some goodies on your way ;) also, like, tell me what you think this is my first botw mod project lol",
+        "PrimLink": "https://www.twitch.tv/JWDragair"
+    },
+    "Ribbajack": {
+        "image": "assets/UserIcons/Ribbajack.png",
+        "role": "Section Editor",
+        "about": "Hi! I'm Ribbajack and I'm a section editor and game crasher extraordinaire. Currently on a quest to learn everything there is to know about modding BOTW.",
+        "PrimLink": "https://theribbajack.tumblr.com/"
+    },
+    "Quantum": {
+        "image": "assets/UserIcons/Quantum.png",
+        "role": "Section Editor",
+        "about": "I'm impressively average at everything I do.",
+        "PrimLink": "https://twitch.tv/Just_Quantum23"
+    },
+    "CrimsonStarfall": {
+        "image": "assets/UserIcons/CrimsonStarfall.png",
+        "role": "Section Editor",
+        "about": "New to modding, so I wonder how I'll screw up copy pasting one file to another.",
+        "PrimLink": "https://twitter.com/CrimsonStarfall"
     }
 }
