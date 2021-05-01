@@ -25,6 +25,7 @@ server.get('/', (req, res) => {
 server.get('/:pageName', (req, res) => {
     var pageName = req.params['pageName']
     var page = `${__dirname}/web/${pageName}.html`
+    console.log(page)
     if (fs.existsSync(page)) {
         res.sendFile(page)
     }
