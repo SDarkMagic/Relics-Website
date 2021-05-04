@@ -36,21 +36,27 @@ function isEven(int) {
 
 // Sets up the team page based on a template
 function setTeam(stream) {
-    var teamContainer = document.getElementById('StreamContainer');
+    var steamContainer = document.getElementById('StreamContainer');
     var data;
     var i = 0
-    for (var member in team) {
-        data = checkNullAppend(data, formatMemberData(stream, member, isEven(i)))
+    for (var index in stream) {
+        data = checkNullAppend(data, formatMemberData(stream[index], isEven(i)))
         i++
     };
     //data = 'Null';
     //console.warn(data)
-    teamContainer.innerHTML = data;
+    if (stream.length != 0) {
+        steamContainer.innerHTML = data;
+    }
+    else {
+        return
+    }
 };
 
-function formatMemberData(team, Member, isEven) {
-    var member = team[Member];
-    var memberName = Object.keys(team).find(Member => team[Member] === member);
+function formatMemberData(stream, isEven) {
+    console.log(stream)
+    let streamer = stream['user_name']
+    let title = stream['title']
     var align;
     var formattedHTML;
     var uniqueImgID = 0;
@@ -66,37 +72,14 @@ function formatMemberData(team, Member, isEven) {
     else {
         uniqueImgID = uniqueImgID
     }
-    IdList.push(uniqueImgID)
-    formattedHTML = `<div class="memberCard ${align}">
-        <a href='${team[Member]["PrimLink"]}'>
-            <img src='${team[Member]["image"]}' class="memberImg" title="${memberName}" id="${uniqueImgID}" onerror="imgFail(${uniqueImgID}, 'assets/noMemberIco.png')" alt="${member}">
-        </a>
-        <div class="text">
-            <h1 class='memberName'>${memberName}</h1>
-            <h2 class='memberRole'>${member['reason']}</h2>
-            <hr class="lineBreak">
-            <p class='about'>${team[Member]["about"]}</p>
-        </div>\n`
 
-    /*if (team[Member]['links'] != null || team[Member]['links'] != {}) {
-        var linkList = `<ul id='memberLinks>`;
-        for (var link in team[Member]['links']){
-            var imgPath;
-            var linkTxt;
-            if (team[Member]['links'][link] != null) {
-                imgPath = `<img src="${member['links'][link]}" id='linkImg'>`
-            }
-            else {
-                imgPath = `<img src="assets/linkDefault.png">`
-            };
-            linkTxt = `<a href="${link}">${imgPath} ${link}</a>`
-            checkNullAppend(linkList, linkTxt)
-        }
-        formattedHTML = formattedHTML + linkList + `</ul></div>\n`
-    }
-    else {
-        formattedHTML = formattedHTML + `</div>\n`
-    };*/
+    IdList.push(uniqueImgID)
+    formattedHTML = `<div class="streamerCard ${align}">
+            <iframe class='player' src='https://player.twitch.tv/?channel=${streamer}&parent=${window.location.hostname}' allowfullscreen="true" muted="true" autoplay="false"></iframe>
+            <iframe class='chat' src='https://www.twitch.tv/embed/${streamer}/chat?parent=${window.location.hostname}'></iframe>
+            <a href='https://twitch.tv/${streamer}' class='streamLink'>
+                <h3 class='streamTitle'>${title}</h3>
+            </a>`
     formattedHTML = formattedHTML + `</div>\n`
     //console.log(formattedHTML)
     return formattedHTML

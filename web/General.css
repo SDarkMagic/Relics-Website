@@ -77,6 +77,10 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     background-image: url(assets/ForgottenTempleEntrance_Blur.png);
 }
 
+#streams {
+    background-image: url(assets/ForgottenTempleGuardian_Blur.png);
+}
+
 #TeamContainer {
     height: auto;
     margin-bottom: 10%;
@@ -141,7 +145,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     margin-top: auto;
     margin-right: 30px;
     padding: 0px;
-    font-size: 40px;
+    font-size: 2.792vw;
     font-family: KommonGrotesque_Italic;
     text-align: center;
 }

@@ -1,0 +1,52 @@
+a .streamTitle {
+    font-size: 3vw;
+    color: #000000;
+    font-family: Arial;
+}
+
+.streamLink {
+    text-decoration: none;
+}
+
+.streamTitle:hover {
+    color: #00075f;
+}
+
+.streamerCard {
+    margin-top: 5%;
+    padding: 5px;
+    background-color: #d4d4d4;
+    width: 80%;
+    max-width: 95%;
+    box-shadow: 15px 15px 15px 2px #525252;
+    /*max-height: 70vh;*/
+    margin-bottom: 5vh;
+}
+
+.streamerCard .player {
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: auto;
+    min-height: 300px;
+    min-width: 400px;
+    width: 60%;
+    height: 90%;
+    display: inline-block;
+    border: none;
+}
+
+.chat {
+    border-radius: 5px;
+    margin-top: 1%;
+    display: inline-block;
+    min-height: 300px;
+    width: 35%;
+    margin: auto;
+    margin-left: 1%;
+    border: none;
+}
+
+.subTitle {
+    color: #ffffff;
+}
