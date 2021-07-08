@@ -1,5 +1,5 @@
-//const express = require('express')
 const https = require('https')
+const express = require('express')
 const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
@@ -8,6 +8,9 @@ const port = 4000
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
+
+// Sets up the options variable to contain SSL data
+var options = {}
 
 /*
 // Handles errors
@@ -35,11 +38,14 @@ server.get('/:pageName', (req, res) => {
     };
 });
 
+/*
+No longer necessary as news articles are now handled by News.js
 // Attempts to get and return proper past news articles
 server.get('/news/:article', (res, req) => {
     var articleTitle = req.params['article']
     var page = `${__dirname}/web/news.html`
 });
+*/
 
 // Sends the official WiiU release build Zip
 server.get('/WiiU-Release', (req, res) => {
@@ -71,6 +77,8 @@ server.get('/hidden', (req, res) => {
     console.log(__dirname)
     res.sendFile(`${__dirname}/web/hidden.html`)
 });
+
+var secureServer = https.createServer(options, server)
 
 // Starts the server
 server.listen(port, () => {
