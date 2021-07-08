@@ -184,7 +184,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 #mobileNavBar {
   display: none;
-  float: right;
+  float: left;
   background-image: url(assets/Hamburger.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -192,7 +192,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   min-width: 5vw;
   height: 5vw;
   margin: 5px;
-  margin-right: 1vw;
+  margin-left: 1vw;
   z-index: 3;
   filter: invert(100%);
 }
@@ -203,12 +203,12 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   z-index: 4;
   background-image: inherit;
   background-position: inherit;
-  border-bottom-left-radius: 5%;
-  box-shadow: 0px 4px 10px;
+  border-bottom-right-radius: 5%;
+  box-shadow: 4px 4px 10px;
   padding: 0px;
   max-width: 20vw;
-  margin-right: 0px;
-  margin-left: auto;
+  margin-right: auto;
+  margin-left: 0px;
   margin-top: 5.95703125vw;
   width: 15%;
 }

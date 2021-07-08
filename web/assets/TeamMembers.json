@@ -76,5 +76,17 @@
         "role": "Section Editor",
         "about": "New to modding, so I wonder how I'll screw up copy pasting one file to another.",
         "PrimLink": "https://twitter.com/CrimsonStarfall"
+    },
+    "JaySkilling": {
+        "image": "assets/UserIcons/JaySkilling.png",
+        "role": "Section Editor",
+        "about": "Computer Science Nerd that is tackling BOTW modding now",
+        "PrimLink": "https://www.twitch.tv/jayskilling"
+    },
+    "Sky_Dragon": {
+        "image": "assets/UserIcons/Sky_Dragon.png",
+        "role": "Section Editor, Text Editor",
+        "about": "Dragons make everything better! Look to the sky and spread your wings!",
+        "PrimLink": "https://www.youtube.com/channel/UCtOptmwwrRFa2ksDqCtPesw"
     }
 }
