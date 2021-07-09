@@ -4,13 +4,20 @@ const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
 const server = express()
-const port = 4000
+const port = 80
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
 
+// Sets up SSL data
+var key = fs.readFileSync(__dirname + '/certs/server.key')
+var cert = fs.readFileSync(__dirname + '/certs/server.crt')
+
 // Sets up the options variable to contain SSL data
-var options = {}
+var options = {
+    'key': key,
+    'cert': cert
+}
 
 /*
 // Handles errors
@@ -81,6 +88,6 @@ server.get('/hidden', (req, res) => {
 var secureServer = https.createServer(options, server)
 
 // Starts the server
-server.listen(port, () => {
+secureServer.listen(port, () => {
     console.log(`Server started on port ${port}`)
 });
