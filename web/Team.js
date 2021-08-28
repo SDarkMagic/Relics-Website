@@ -67,7 +67,8 @@ function formatMemberData(team, Member, isEven) {
         uniqueImgID = uniqueImgID
     }
     IdList.push(uniqueImgID)
-    formattedHTML = `<div class="memberCard ${align}">
+    formattedHTML = `<a class="anchor" id="${memberName}"></a>
+        <div class="memberCard ${align}">
         <a href='${team[Member]["PrimLink"]}'>
             <img src='${team[Member]["image"]}' class="memberImg" title="${memberName}" id="${uniqueImgID}" onerror="imgFail(${uniqueImgID}, 'assets/noMemberIco.png')" alt="${member}">
         </a>

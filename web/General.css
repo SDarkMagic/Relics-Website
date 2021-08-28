@@ -295,7 +295,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .Description p {
-    text-indent: 3%;
+    text-indent: 0%;
     margin: 2%;
     font-family: Arial;
     font-size: 1.5vw;
@@ -332,6 +332,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .aboutList li {
     font-family: inherit;
     font-size: inherit;
+    margin-bottom: 0.5vw;
 }
 
 .memberCard {
@@ -559,4 +560,11 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     max-width: 85%;
     width: fit-content;
     display: flex;
+}
+
+.anchor {
+    top: -5vw;
+    display: block;
+    visibility: hidden;
+    position: relative;
 }
