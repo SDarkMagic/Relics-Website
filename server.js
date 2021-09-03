@@ -35,7 +35,7 @@ server.get('/', (req, res) => {
 // Attempts to forward any requests from /{var} to a corresponding HTML page
 server.get('/:pageName', (req, res) => {
     var pageName = req.params['pageName']
-    var page = `${__dirname}/web/${pageName}.html`
+    var page = `${__dirname}/web/${pageName.toLowerCase()}.html`
     console.log(page)
     if (fs.existsSync(page)) {
         res.sendFile(page)
@@ -88,6 +88,6 @@ server.get('/hidden', (req, res) => {
 var secureServer = https.createServer(options, server)
 
 // Starts the server
-secureServer.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server started on port ${port}`)
 });
