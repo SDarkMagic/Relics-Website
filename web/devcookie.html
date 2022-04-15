@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <title>Relics of the Past Official Website - Set Dev Cookie</title>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet', href='General.css'></link>
+        <link rel='stylesheet', href='Streams.css'></link>
+        <link rel="icon" href="./assets/Logo_Icon.png"></link>
+        <script type='text/javascript' src='Main.js'></script>
+    </head>
+    <body class="background" id="">
+        <div class='page'>
+            <div id='NavBar'></div>
+            <h1 class="title">Developer Cookie</h1>
+            <button class="DownloadButton" id="DeveloperCookieToggle" onclick="toggleCookie()"></button>
+        </div>
+    </body>
+    <script>
+        var cookieToggle = document.getElementById('DeveloperCookieToggle')
+        var devCookie = "RelicsDevCookie=920";
+
+        if (document.cookie.indexOf(devCookie) !== -1) {
+            cookieToggle.innerText = 'Disable Developer Cookie'
+        }
+        else {
+            cookieToggle.innerText = 'Enable Developer Cookie'
+        }
+
+        function toggleCookie(){
+            if (document.cookie.indexOf(devCookie) !== -1) {
+                // Runs if the cookie already exists and disables it
+                document.cookie = 'RelicsDevCookie=287; path=/;'
+                alert('Developer Cookie Disabled :)')
+                cookieToggle.innerText = 'Enable Developer Cookie'
+            }
+            else {
+                // Runs if the cookie does not currently exist and match the proper value
+                document.cookie = 'RelicsDevCookie=920; path=/;'
+                alert('Developer Cookie Successfully Enabled.')
+                cookieToggle.innerText = 'Disable Developer Cookie'
+            }
+        }
+    </script>
+</html>
