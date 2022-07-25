@@ -1,0 +1,3 @@
+[submodule "objmap"]
+	path = objmap
+	url = https://github.com/zeldamods/objmap

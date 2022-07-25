@@ -10,9 +10,9 @@
     "node-mime": "^1.0.0",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "sudo node server.js"
+    "start": "node server.js",
+    "cypress:open": "node_modules\\.bin\\cypress open"
   },
   "keywords": [],
   "author": "",

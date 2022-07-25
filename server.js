@@ -45,15 +45,6 @@ server.get('/:pageName', (req, res) => {
     };
 });
 
-/*
-No longer necessary as news articles are now handled by News.js
-// Attempts to get and return proper past news articles
-server.get('/news/:article', (res, req) => {
-    var articleTitle = req.params['article']
-    var page = `${__dirname}/web/news.html`
-});
-*/
-
 // Sends the official WiiU release build Zip
 server.get('/WiiU-Release', (req, res) => {
     var file = `${__dirname}/web/assets/ModFiles/WiiU/breathofthewild_relics_of_the_past__e0751.zip`;
@@ -88,6 +79,7 @@ server.get('/hidden', (req, res) => {
 var secureServer = https.createServer(options, server)
 
 // Starts the server
-server.listen(port, () => {
-    console.log(`Server started on port ${port}`)
+secureServer.listen(port, '0.0.0.0', () => {
+    console.log(secureServer.address())
+    console.log(`Server started on https://${secureServer.address().address}:${port}`)
 });

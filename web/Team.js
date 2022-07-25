@@ -103,4 +103,6 @@ function formatMemberData(team, Member, isEven) {
     return formattedHTML
 }
 
-requestPageJson('/assets/TeamMembers.json', setTeam)
+window.onload(() => {
+    requestPageJson('/assets/TeamMembers.json', setTeam)
+})
