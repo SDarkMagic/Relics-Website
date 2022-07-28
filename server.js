@@ -1,5 +1,6 @@
 const https = require('https')
 const express = require('express')
+const subdomain = require('express-subdomain')
 const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
@@ -8,10 +9,16 @@ const port = 80
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
+server.use((req, res) => {
+    if (req.secure){
+        res.setHeader('Strict-Transport-Security', 'max-age=300; includeSubDomains; preload')
+    }
+    else {}
+})
 
 // Sets up SSL data
-var key = fs.readFileSync(__dirname + '/certs/server.key')
-var cert = fs.readFileSync(__dirname + '/certs/server.crt')
+var key = fs.readFileSync(__dirname + '/certs/key.pem')
+var cert = fs.readFileSync(__dirname + '/certs/cert.pem')
 
 // Sets up the options variable to contain SSL data
 var options = {
@@ -70,11 +77,24 @@ server.get('/NX-Beta_public', (req, res) => {
 });
 
 
-// Sends the user to the hidden place
+// Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
 server.get('/hidden', (req, res) => {
     console.log(__dirname)
     res.sendFile(`${__dirname}/web/hidden.html`)
 });
+
+var objmap = express.Router()
+objmap.get('/', (req, res) => {
+    res.send('Using the objmap subdomain! :)')
+})
+
+var radar = express.Router()
+radar.get('/', (req, res) => {
+    res.send('Using the radar API subdomain...')
+})
+
+server.use(subdomain('objmap', objmap))
+server.use(subdomain('radar', radar))
 
 var secureServer = https.createServer(options, server)
 
