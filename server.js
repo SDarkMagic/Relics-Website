@@ -9,19 +9,22 @@ const port = 80
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
+server.use(express.static('objmap'))
+/*
 server.use((req, res) => {
     if (req.secure){
         res.setHeader('Strict-Transport-Security', 'max-age=300; includeSubDomains; preload')
     }
     else {}
 })
+*/
 
 // Sets up SSL data
-var key = fs.readFileSync(__dirname + '/certs/key.pem')
-var cert = fs.readFileSync(__dirname + '/certs/cert.pem')
+const key = fs.readFileSync(__dirname + '/certs/cert.key')
+const cert = fs.readFileSync(__dirname + '/certs/cert.pem')
 
 // Sets up the options variable to contain SSL data
-var options = {
+const options = {
     'key': key,
     'cert': cert
 }
@@ -34,9 +37,37 @@ server.use(function (err, req, res, next) {
 });
 */
 
+const objmap = express.Router()
+objmap.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/objmap/dist/index.html`)
+})
+objmap.get('/:subDir/:subFile?', (req, res) => {
+    let subFile = req.params['subFile']
+    let subDir = req.params['subDir']
+    // console.log(subDir, subFile)
+    try {
+        if (subFile != undefined){
+            res.status(200).sendFile(`${__dirname}/objmap/dist/${subDir}/${subFile}`)
+        }
+        else {
+            res.status(200).sendFile(`${__dirname}/objmap/dist/${subDir}`)
+        }
+    }
+    catch {
+        res.status(404)
+    }
+})
+server.use(subdomain('objmap', objmap))
+
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
     res.sendFile(__dirname + '/web/home.html')
+});
+
+// Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
+server.get('/hidden', (req, res) => {
+    console.log(__dirname)
+    res.sendFile(`${__dirname}/web/hidden.html`)
 });
 
 // Attempts to forward any requests from /{var} to a corresponding HTML page
@@ -77,24 +108,12 @@ server.get('/NX-Beta_public', (req, res) => {
 });
 
 
-// Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
-server.get('/hidden', (req, res) => {
-    console.log(__dirname)
-    res.sendFile(`${__dirname}/web/hidden.html`)
-});
-
-var objmap = express.Router()
-objmap.get('/', (req, res) => {
-    res.send('Using the objmap subdomain! :)')
-})
-
 var radar = express.Router()
 radar.get('/', (req, res) => {
     res.send('Using the radar API subdomain...')
 })
 
-server.use(subdomain('objmap', objmap))
-server.use(subdomain('radar', radar))
+//server.use(subdomain('radar', radar))
 
 var secureServer = https.createServer(options, server)
 
