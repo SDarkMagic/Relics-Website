@@ -1,5 +1,6 @@
 const https = require('https')
 const express = require('express')
+const subdomain = require('express-subdomain')
 const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
@@ -8,13 +9,22 @@ const port = 80
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
+server.use(express.static('objmap'))
+/*
+server.use((req, res) => {
+    if (req.secure){
+        res.setHeader('Strict-Transport-Security', 'max-age=300; includeSubDomains; preload')
+    }
+    else {}
+})
+*/
 
 // Sets up SSL data
-var key = fs.readFileSync(__dirname + '/certs/server.key')
-var cert = fs.readFileSync(__dirname + '/certs/server.crt')
+const key = fs.readFileSync(__dirname + '/certs/cert.key')
+const cert = fs.readFileSync(__dirname + '/certs/cert.pem')
 
 // Sets up the options variable to contain SSL data
-var options = {
+const options = {
     'key': key,
     'cert': cert
 }
@@ -27,9 +37,37 @@ server.use(function (err, req, res, next) {
 });
 */
 
+const objmap = express.Router()
+objmap.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/objmap/dist/index.html`)
+})
+objmap.get('/:subDir/:subFile?', (req, res) => {
+    let subFile = req.params['subFile']
+    let subDir = req.params['subDir']
+    // console.log(subDir, subFile)
+    try {
+        if (subFile != undefined){
+            res.status(200).sendFile(`${__dirname}/objmap/dist/${subDir}/${subFile}`)
+        }
+        else {
+            res.status(200).sendFile(`${__dirname}/objmap/dist/${subDir}`)
+        }
+    }
+    catch {
+        res.status(404)
+    }
+})
+server.use(subdomain('objmap', objmap))
+
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
     res.sendFile(__dirname + '/web/home.html')
+});
+
+// Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
+server.get('/hidden', (req, res) => {
+    console.log(__dirname)
+    res.sendFile(`${__dirname}/web/hidden.html`)
 });
 
 // Attempts to forward any requests from /{var} to a corresponding HTML page
@@ -44,15 +82,6 @@ server.get('/:pageName', (req, res) => {
         res.status(404).sendFile(`${__dirname}/web/404.html`)
     };
 });
-
-/*
-No longer necessary as news articles are now handled by News.js
-// Attempts to get and return proper past news articles
-server.get('/news/:article', (res, req) => {
-    var articleTitle = req.params['article']
-    var page = `${__dirname}/web/news.html`
-});
-*/
 
 // Sends the official WiiU release build Zip
 server.get('/WiiU-Release', (req, res) => {
@@ -79,15 +108,17 @@ server.get('/NX-Beta_public', (req, res) => {
 });
 
 
-// Sends the user to the hidden place
-server.get('/hidden', (req, res) => {
-    console.log(__dirname)
-    res.sendFile(`${__dirname}/web/hidden.html`)
-});
+var radar = express.Router()
+radar.get('/', (req, res) => {
+    res.send('Using the radar API subdomain...')
+})
+
+//server.use(subdomain('radar', radar))
 
 var secureServer = https.createServer(options, server)
 
 // Starts the server
-server.listen(port, () => {
-    console.log(`Server started on port ${port}`)
+secureServer.listen(port, '0.0.0.0', () => {
+    console.log(secureServer.address())
+    console.log(`Server started on https://${secureServer.address().address}:${port}`)
 });

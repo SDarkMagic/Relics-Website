@@ -5,14 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
+    "express-subdomain": "^1.0.5",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
     "node-mime": "^1.0.0",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "sudo node server.js"
+    "start": "node server.js",
+    "cypress:open": "node_modules\\.bin\\cypress open"
   },
   "keywords": [],
   "author": "",
