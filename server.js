@@ -5,7 +5,7 @@ const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
 const server = express()
-const port = 30002
+const port = 80
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
