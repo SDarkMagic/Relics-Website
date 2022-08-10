@@ -12,10 +12,12 @@
     "path": "^0.12.7"
   },
   "scripts": {
-    "start": "node server.js",
-    "cypress:open": "node_modules\\.bin\\cypress open"
+    "start": "nodemon ./server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }

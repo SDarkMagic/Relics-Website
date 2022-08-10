@@ -5,7 +5,7 @@ const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
 const server = express()
-const port = 80
+const port = 30002
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
@@ -54,10 +54,18 @@ objmap.get('/:subDir/:subFile?', (req, res) => {
         }
     }
     catch {
-        res.status(404)
+        res.status(404).json({})
     }
 })
 server.use(subdomain('objmap', objmap))
+
+const radar = require('./radar/app/app')
+const router = express.Router()
+router.use('/', radar)
+radar.get('/', (req, res) => {
+    res.status(404).sendFile(__dirname + '/web/404.html')
+})
+server.use(subdomain('radar', radar))
 
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
@@ -106,12 +114,6 @@ server.get('/NX-Beta_public', (req, res) => {
     var file = `${__dirname}/web/assets/ModFiles/NX`
     res.download(file, 'RelicsOfThePast_Public-Beta-NX.zip')
 });
-
-
-var radar = express.Router()
-radar.get('/', (req, res) => {
-    res.send('Using the radar API subdomain...')
-})
 
 //server.use(subdomain('radar', radar))
 
