@@ -5,7 +5,7 @@ const mime = require('node-mime')
 const path = require('path')
 const fs = require('fs')
 const server = express()
-const port = 80
+const port = 8080
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
@@ -61,7 +61,6 @@ server.use(subdomain('objmap', objmap))
 
 const radar = require('./radar/app/app')
 const router = express.Router()
-router.use('/', radar)
 radar.get('/', (req, res) => {
     res.status(404).sendFile(__dirname + '/web/404.html')
 })
