@@ -1,6 +1,3 @@
-[submodule "objmap"]
-	path = objmap
-	url = https://github.com/zeldamods/objmap
 [submodule "radar"]
 	path = radar
 	url = https://github.com/SDarkMagic/radar.git
