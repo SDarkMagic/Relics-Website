@@ -39,12 +39,14 @@ objmap.get('/:subDir/:subFile?', (req, res) => {
 })
 server.use(subdomain('objmap', objmap))
 
-const radar = require('./radar/app/app')
-const router = express.Router()
+const radar = require('./routes/radar/app/app')
 radar.get('/', (req, res) => {
     res.status(404).sendFile(__dirname + '/web/404.html')
 })
 server.use(subdomain('radar', radar))
+
+const twitch = require('./routes/stream-api')()
+server.use(subdomain('api', twitch))
 
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
