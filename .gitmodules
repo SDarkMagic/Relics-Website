@@ -1,5 +1,5 @@
 [submodule "radar"]
-	path = radar
+	path = routes/radar
 	url = https://github.com/SDarkMagic/radar.git
 [submodule "objmap"]
 	path = objmap
