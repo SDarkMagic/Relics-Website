@@ -1,33 +1,13 @@
-const https = require('https')
+const https = require('http')
 const express = require('express')
 const subdomain = require('express-subdomain')
-const mime = require('node-mime')
-const path = require('path')
 const fs = require('fs')
 const server = express()
-const port = 8080
+const port = 3000
 
 //Adds the "web" folder to the available server urls
 server.use(express.static('web'));
 server.use(express.static('objmap'))
-/*
-server.use((req, res) => {
-    if (req.secure){
-        res.setHeader('Strict-Transport-Security', 'max-age=300; includeSubDomains; preload')
-    }
-    else {}
-})
-*/
-
-// Sets up SSL data
-const key = fs.readFileSync(__dirname + '/certs/cert.key')
-const cert = fs.readFileSync(__dirname + '/certs/cert.pem')
-
-// Sets up the options variable to contain SSL data
-const options = {
-    'key': key,
-    'cert': cert
-}
 
 /*
 // Handles errors
@@ -54,7 +34,7 @@ objmap.get('/:subDir/:subFile?', (req, res) => {
         }
     }
     catch {
-        res.status(404).json({})
+        res.status(404).sendFile(__dirname + '/web/404.html')
     }
 })
 server.use(subdomain('objmap', objmap))
@@ -114,12 +94,7 @@ server.get('/NX-Beta_public', (req, res) => {
     res.download(file, 'RelicsOfThePast_Public-Beta-NX.zip')
 });
 
-//server.use(subdomain('radar', radar))
-
-var secureServer = https.createServer(options, server)
-
 // Starts the server
-secureServer.listen(port, '0.0.0.0', () => {
-    console.log(secureServer.address())
-    console.log(`Server started on https://${secureServer.address().address}:${port}`)
+server.listen(port, () => {
+    console.log(`Server started on localhost:${port}`)
 });

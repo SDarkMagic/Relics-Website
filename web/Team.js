@@ -1,6 +1,6 @@
 var IdList = [];
 
-// Requests the navBar json from the server
+// Requests the team json from the server
 function requestPageJson(fileRequest, callBack) {
     var xhttp = new XMLHttpRequest()
     xhttp.onreadystatechange = function() {
@@ -38,7 +38,7 @@ function setTeam(team) {
     var data;
     var i = 0
     for (var member in team) {
-        console.log(i)
+        // console.log(i)
         data = checkNullAppend(data, formatMemberData(team, member, isEven(i)))
         i++
     };
@@ -103,6 +103,4 @@ function formatMemberData(team, Member, isEven) {
     return formattedHTML
 }
 
-window.onload(() => {
-    requestPageJson('/assets/TeamMembers.json', setTeam)
-})
+window.addEventListener('load', requestPageJson('/assets/TeamMembers.json', setTeam))

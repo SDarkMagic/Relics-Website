@@ -85,4 +85,4 @@ function formatMemberData(stream, isEven) {
     return formattedHTML
 }
 
-requestPageJson('/assets/LiveStreams.json', setTeam)
+window.addEventListener('load', requestPageJson('/assets/LiveStreams.json', setTeam))

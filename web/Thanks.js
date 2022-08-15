@@ -103,4 +103,4 @@ function formatMemberData(team, Member, isEven) {
     return formattedHTML
 }
 
-requestPageJson('/assets/SpThanks.json', setTeam)
+window.addEventListener('load', requestPageJson('/assets/SpThanks.json', setTeam))

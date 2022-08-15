@@ -85,8 +85,8 @@ function debug_getHeight(elementGetId, dataElement) {
 }
 
 // Code run when window the script is running from is loaded
-window.onload = function() {
+window.addEventListener('load', () => {
     console.log('Loaded page!')
     requestPageJson('/assets/NavBar.json', genNavBar)
     console.log('Generated NavBar successfully')
-}
+})
