@@ -85,4 +85,4 @@ function formatMemberData(stream, isEven) {
     return formattedHTML
 }
 
-window.addEventListener('load', requestPageJson('/assets/LiveStreams.json', setTeam))
+window.addEventListener('load', requestPageJson('https://api.relicsofthepast.dev/streams', setTeam))

@@ -11,23 +11,25 @@ const client = new ApiClient({authProvider: new ClientCredentialsAuthProvider(cl
 const botwGameId = 110758
 
 function checkTitle(title){
-    for (let word in title.split(' ')){
-        word = word.toLowerCase().replace('/[\w]', '')
+    for (let i in title.split(' ')) {
+        let word = title.split(' ')[i]
+        const regex = /\W/g
+        word = word.replace(regex, '').toLowerCase()
         if (word === 'relics' || word === 'rotp') {
             return true
         } else {
-            return false
+            continue
         }
     }
+    return false
 }
 async function getStreams(req, res, next){
-    console.log('called getStreams')
     const game = await client.helix.games.getGameById(botwGameId)
     const streams = await game.getStreamsPaginated().getAll()
     let relicsStreams = []
     streams.forEach(stream => {
         if (checkTitle(stream.title) === true){
-            relicsStreams.push(stream)
+            relicsStreams.push({user_name: stream.userName, title: stream.title})
         }
     })
     res.status(200).json(relicsStreams)
