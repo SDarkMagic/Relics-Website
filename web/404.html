@@ -22,9 +22,18 @@
                 <div id="hiddenTag">
                     <a href="./hidden" id="hiddenLink">Page Not Found</h1></a>
                 </div>
-            <a href="./home">Return Home</a>
+            <a href="./home" id="returnHome">Return Home</a>
         </div>
     </body>
+    <script>
+        window.addEventListener('load', () => {
+            var separate = location.host.split('.');
+            if (separate.length > 2) separate.shift();
+            var currentdomain = location.protocol + '//www.' + separate.join('.');
+            homeButton = document.getElementById('returnHome')
+            homeButton.setAttribute('href', currentdomain + '/home')
+        })
+    </script>
     <style>
         #hiddenTag {
             height: inherit;

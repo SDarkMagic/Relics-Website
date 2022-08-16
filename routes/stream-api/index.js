@@ -4,7 +4,7 @@ const twitch = require('./streams')
 
 
 module.exports = function () {
-    router.use(cors())
-    router.route('/').get(twitch)
+    //router.use(cors())
+    router.route('/').get(twitch.getStreams)
     return router
 }

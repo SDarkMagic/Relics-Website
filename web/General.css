@@ -173,7 +173,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   padding: 0px;
   border: none;
   box-shadow: 0px 4px 10px;
-  max-height: 5.95703125vw;
+  height: 5.95703125vw;
   width: 100%;
   position: fixed;
   top: 0;
@@ -224,6 +224,8 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 #mobileNavBarList .navItem {
   display: block;
   margin: 2px;
+  margin-left: auto;
+  margin-right: auto;
   width: auto;
   font-size: 2vw;
 }
@@ -251,6 +253,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   }
   #mobileNavBar {
     display: block;
+    position: absolute;
   }
   #mobileNavBar:hover {
     cursor: pointer;

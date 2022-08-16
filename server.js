@@ -45,12 +45,17 @@ radar.get('/', (req, res) => {
 })
 server.use(subdomain('radar', radar))
 
-const twitch = require('./routes/stream-api')()
-server.use(subdomain('api', twitch))
+const api = require('./routes')()
+server.use(subdomain('api', api))
 
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
-    res.sendFile(__dirname + '/web/home.html')
+    if (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === ''){
+        res.sendFile(__dirname + '/web/home.html')
+    }
+    else {
+        res.status(404).sendFile(`${__dirname}/web/404.html`)
+    }
 });
 
 // Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
@@ -64,7 +69,7 @@ server.get('/:pageName', (req, res) => {
     var pageName = req.params['pageName']
     var page = `${__dirname}/web/${pageName.toLowerCase()}.html`
     console.log(page)
-    if (fs.existsSync(page)) {
+    if (fs.existsSync(page) && (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === '')) {
         res.sendFile(page)
     }
     else {
@@ -97,6 +102,6 @@ server.get('/NX-Beta_public', (req, res) => {
 });
 
 // Starts the server
-server.listen(port, () => {
+server.listen(port, 'localhost', () => {
     console.log(`Server started on localhost:${port}`)
 });
