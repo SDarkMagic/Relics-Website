@@ -50,7 +50,7 @@ server.use(subdomain('api', api))
 
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
-    if (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === ''){
+    if (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === 'relicsofthepast'){
         res.sendFile(__dirname + '/web/home.html')
     }
     else {
@@ -69,7 +69,7 @@ server.get('/:pageName', (req, res) => {
     var pageName = req.params['pageName']
     var page = `${__dirname}/web/${pageName.toLowerCase()}.html`
     console.log(page)
-    if (fs.existsSync(page) && (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === '')) {
+    if (fs.existsSync(page) && (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === 'relicsofthepast')) {
         res.sendFile(page)
     }
     else {
