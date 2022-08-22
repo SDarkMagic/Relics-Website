@@ -36,20 +36,18 @@ function isEven(int) {
 
 // Sets up the team page based on a template
 function setTeam(stream) {
-    var steamContainer = document.getElementById('StreamContainer');
+    var streamContainer = document.getElementById('StreamContainer');
     var data;
     var i = 0
     for (var index in stream) {
         data = checkNullAppend(data, formatMemberData(stream[index], isEven(i)))
         i++
     };
-    //data = 'Null';
-    //console.warn(data)
     if (stream.length != 0) {
-        steamContainer.innerHTML = data;
+        streamContainer.innerHTML = data;
     }
     else {
-        return
+        streamContainer.innerHTML = "<h2 class='subTitle'>Oops, looks like no one is streaming Relics of the Past right now...</h2>"
     }
 };
 
@@ -81,7 +79,6 @@ function formatMemberData(stream, isEven) {
                 <h3 class='streamTitle'>${title}</h3>
             </a>`
     formattedHTML = formattedHTML + `</div>\n`
-    //console.log(formattedHTML)
     return formattedHTML
 }
 

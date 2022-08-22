@@ -42,8 +42,6 @@ function setTeam(team) {
         data = checkNullAppend(data, formatMemberData(team, member, isEven(i)))
         i++
     };
-    //data = 'Null';
-    //console.warn(data)
     teamContainer.innerHTML = data;
 };
 
@@ -99,7 +97,6 @@ function formatMemberData(team, Member, isEven) {
         formattedHTML = formattedHTML + `</div>\n`
     };*/
     formattedHTML = formattedHTML + `</div>\n`
-    //console.log(formattedHTML)
     return formattedHTML
 }
 

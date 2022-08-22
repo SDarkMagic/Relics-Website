@@ -11,19 +11,19 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 @keyframes loopSelector {
-    0% {border-image: url(assets/CornerBorder.png) 49 repeat;}
-    50% {border-image: url(assets/CornerBorder_Blur.png) 78 repeat;}
-    100% {border-image: url(assets/CornerBorder.png) 49 repeat;}
+    0% {border-image: url(../assets/CornerBorder.png) 49 repeat;}
+    50% {border-image: url(../assets/CornerBorder_Blur.png) 78 repeat;}
+    100% {border-image: url(../assets/CornerBorder.png) 49 repeat;}
 }
 
 @font-face {
     font-family: Zelda_botw;
-    src: url(assets/HyliaSerifBeta-Regular.otf);
+    src: url(../assets/HyliaSerifBeta-Regular.otf);
 }
 
 @font-face {
     font-family: KommonGrotesque_Italic;
-    src: url(assets/Kommon\ Grotesk\ Regular\ Italic.otf);
+    src: url(../assets/Kommon\ Grotesk\ Regular\ Italic.otf);
 }
 
 .hidden {
@@ -54,35 +54,35 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 #home {
-    background-image: url(assets/PlateauStalkerStump-Ruin_blur.png);
+    background-image: url(../assets/PlateauStalkerStump-Ruin_blur.png);
 }
 
 #about {
-    background-image: url(assets/PlateauEntryDecayed_Blur.png);
+    background-image: url(../assets/PlateauEntryDecayed_Blur.png);
 }
 
 #download {
-    background-image: url(assets/GuardianChaseHorse_Blur.png);
+    background-image: url(../assets/GuardianChaseHorse_Blur.png);
 }
 
 #team {
-    background-image: url(assets/ForgottenTemple_Blur.png);
+    background-image: url(../assets/ForgottenTemple_Blur.png);
 }
 
 #new {
-    background-image: url(assets/FortHatenoRuins_Blur.png);
+    background-image: url(../assets/FortHatenoRuins_Blur.png);
 }
 
 #thanks {
-    background-image: url(assets/ForgottenTempleEntrance_Blur.png);
+    background-image: url(../assets/ForgottenTempleEntrance_Blur.png);
 }
 
 #streams {
-    background-image: url(assets/ForgottenTempleGuardian_Blur.png);
+    background-image: url(../assets/ForgottenTempleGuardian_Blur.png);
 }
 
 #faq {
-    background-image: url(assets/Sanctum.png);
+    background-image: url(../assets/Sanctum.png);
 }
 
 #TeamContainer {
@@ -91,7 +91,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 #ErrorPage {
-    background-image: url(assets/SheikahFlowPattern_Grey.png);
+    background-image: url(../assets/SheikahFlowPattern_Grey.png);
     background-repeat: repeat;
     background-size: 500px;
 }
@@ -177,7 +177,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   width: 100%;
   position: fixed;
   top: 0;
-  background-image: url(assets/SheikahFlowPattern_Brown.png);
+  background-image: url(../assets/SheikahFlowPattern_Brown.png);
   z-index: 1;
 }
 
@@ -189,7 +189,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 #mobileNavBar {
   display: none;
   float: left;
-  background-image: url(assets/Hamburger.png);
+  background-image: url(../assets/Hamburger.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -305,8 +305,15 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     text-indent: 0%;
     margin: 2%;
     font-family: Arial;
-    font-size: 1.5vw;
-    line-height: 2vw;
+    font-size: 2.5vw;
+    line-height: 3vw;
+}
+
+@media screen and (min-width: 800px){
+    .Description p {
+        font-size: 20px;
+        line-height: 24px;
+    }
 }
 
 .aboutImg {
@@ -333,7 +340,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 .aboutList {
     font-family: Arial;
-    font-size: 1.5vw;
+    font-size: inherit;
 }
 
 .aboutList li {
@@ -567,6 +574,18 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     max-width: 85%;
     width: fit-content;
     display: flex;
+}
+
+.discordContainer {
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px;
+    max-width: 85%;
+    width: fit-content;
+    display: flex;
+    margin-bottom: 2vh;
+    display: none;
 }
 
 .anchor {
