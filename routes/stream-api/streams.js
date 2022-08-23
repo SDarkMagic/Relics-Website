@@ -5,8 +5,8 @@ const { ApiClient } = require('twitch');
 //const fs = promises
 require('dotenv').config()
 
-const clientId = process.env.CLIENT_ID
-const clientSecret = process.env.CLIENT_SECRET
+const clientId = process.env.TWITCH_CLIENT_ID
+const clientSecret = process.env.TWITCH_CLIENT_SECRET
 const client = new ApiClient({authProvider: new ClientCredentialsAuthProvider(clientId, clientSecret)})
 const botwGameId = 110758
 

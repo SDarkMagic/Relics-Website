@@ -2,8 +2,10 @@ const https = require('http')
 const express = require('express')
 const subdomain = require('express-subdomain')
 const fs = require('fs')
+const {request} = require('undici')
 const server = express()
 const port = 3000
+//require('dotenv').config()
 
 //Adds the "src" folder to the available server urls
 server.use(express.static('src'));
@@ -16,6 +18,15 @@ server.use(function (err, req, res, next) {
     console.log('this is the error specific function, here is the error ' + err)
 });
 */
+
+async function getJSONResponse(body) {
+	let fullBody = '';
+
+	for await (const data of body) {
+		fullBody += data.toString();
+	}
+	return JSON.parse(fullBody);
+}
 
 const objmap = express.Router()
 objmap.get('/', (req, res) => {
@@ -48,20 +59,56 @@ server.use(subdomain('radar', radar))
 const api = require('./routes')()
 server.use(subdomain('api', api))
 
+// Discord login handling
+server.get('/login', async ({query}, res) => {
+    const {code} = query
+
+    if (code) {
+        try {
+            const tokenResponse = await request('https://discord.com/api/oauth2/token', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    client_id: process.env.DISCORD_CLIENT_ID,
+                    client_secret: process.env.DISCORD_CLIENT_SECRET,
+                    code,
+                    grant_type: 'authorization_code',
+                    redirect_uri: 'http://localtest.me:3000/login',
+                    scope: 'guilds.members.read',
+                }).toString(),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            const oauthData = await getJSONResponse(tokenResponse.body)
+            console.log(oauthData)
+            const userResult = await request('https://discord.com/api/v10/users/@me', {
+                headers: {authorization: `${oauthData.token_type} ${oauthData.access_token}`}
+            })
+            console.log(await getJSONResponse(userResult.body))
+        } catch (error) {
+            console.error(error)
+        }
+    } else {
+        console.log('No code in call')
+    }
+    return res.status(200).sendFile(`${__dirname}/src/home.html`)
+})
+
+// Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
+server.get('/hidden', (req, res) => {
+    console.log(__dirname)
+    res.status(200).sendFile(`${__dirname}/src/hidden.html`)
+});
+
 // Sends any requests to the base url to the index page
 server.get('/', (req, res) => {
     if (req.hostname.split('.')[0] === 'www' || req.hostname.split('.')[0] === 'relicsofthepast'){
         res.sendFile(__dirname + '/src/home.html')
     }
     else {
+        //console.log(req)
         res.status(404).sendFile(`${__dirname}/src/404.html`)
     }
-});
-
-// Sends the user to the hidden place, this is setup separately in case we want some extra functionality added to the page
-server.get('/hidden', (req, res) => {
-    console.log(__dirname)
-    res.sendFile(`${__dirname}/src/hidden.html`)
 });
 
 // Attempts to forward any requests from /{var} to a corresponding HTML page

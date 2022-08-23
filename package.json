@@ -13,7 +13,8 @@
     "https": "^1.0.0",
     "node-mime": "^1.0.0",
     "path": "^0.12.7",
-    "twitch": "^4.6.7"
+    "twitch": "^4.6.7",
+    "undici": "^5.9.1"
   },
   "scripts": {
     "start": "nodemon ./server.js"
