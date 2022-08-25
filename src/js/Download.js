@@ -42,12 +42,13 @@ function requestJson(fileRequest, callBack) {
 
 // Sets the download counter values
 function setDownloads(downloadsObject) {
-    for (var id in Object.keys(elementIDs)){
-      id = Object.keys(elementIDs)[id]
-      console.log('This is just logging stuff', id)
-        let element = document.getElementById(id)
-        element.innerText = downloadsObject[elementIDs[id]]
+    let elements = ''
+    let downloadContainer = document.getElementById('downloadContainer')
+    for (let release in downloadsObject){
+        release = downloadsObject[release]
+        elements += `<a href="${release.files[0].browser_download_url}" class="download-button">${release.tag}</a><br>`
     };
+    downloadContainer.innerHTML = elements
 }
 
 // Updates the download counters every second
@@ -72,4 +73,7 @@ function SetupListeners(){
 };
 
 // These ones handle updating the download counters
-window.addEventListener('load', requestJson('./assets/DownloadCounts.json', setDownloads))
+window.addEventListener('load', () =>{
+    //requestJson('./assets/DownloadCounts.json', setDownloads)
+    requestJson('http://api.localtest.me:3000/releases', setDownloads)
+})
