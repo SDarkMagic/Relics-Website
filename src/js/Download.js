@@ -40,15 +40,37 @@ function requestJson(fileRequest, callBack) {
     xhttp.send()
 }
 
+function setupLinks(files, tag){
+    let element, platform
+    let links = []
+    files.forEach(file => {
+        if (file.name.toLowerCase().includes('switch')){
+            platform = 'switch'
+        }
+        else if (file.name.toLowerCase().includes('wiiu')){
+            platform = 'wiiu'
+        }
+        else {
+            platform = 'switch'
+        }
+        element = `<div id="${tag}-${platform}" class="DownloadButton ${platform}"><a href="${file.browser_download_url}"><img class='buttonIco' src='assets/${platform}logo.png' title='${platform}' alt='${platform}_Icon'><div class='buttonTxt'>Download ${platform[0].toUpperCase() + platform.slice(1)} ${tag}</div></a></div>`
+        links.push(element)
+    });
+    return links.join('')
+}
+
 // Sets the download counter values
 function setDownloads(downloadsObject) {
-    let elements = ''
+    let elements = []
     let downloadContainer = document.getElementById('downloadContainer')
     for (let release in downloadsObject){
         release = downloadsObject[release]
-        elements += `<a href="${release.files[0].browser_download_url}" class="download-button">${release.tag}</a><br>`
+        elements.push(`<div class="release-group">
+            <h1 class='subTitle' style="font-family: Zelda_botw; font-weight: 100;">${release.tag}</h1>
+            <hr class="linebreak" style="background-color: black;">
+            ${setupLinks(release.files, release.tag)}</div>`)
     };
-    downloadContainer.innerHTML = elements
+    downloadContainer.innerHTML = elements.join('')
 }
 
 // Updates the download counters every second

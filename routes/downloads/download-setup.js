@@ -11,7 +11,7 @@ async function getReleases(){
     let repo = 'Relics-of-the-Past-Release'
     releases = await octokit.request('GET /repos/{owner}/{repo}/releases', {owner: owner, repo: repo, per_page: 100})
     console.log('Called get releases')
-    console.log(releases.data, releases.data.length)
+    //console.log(releases.data, releases.data.length)
 }
 
 async function getDownloads(req, res, next){
