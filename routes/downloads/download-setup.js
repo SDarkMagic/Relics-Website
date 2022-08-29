@@ -7,11 +7,17 @@ const octokit = new Octokit({userAgent: 'Relics Website Downloads'})
 let releases;
 
 async function getReleases(){
+    //await persistDownloads(null)
     let owner = 'Relics-Of-The-Past'
     let repo = 'Relics-of-the-Past-Release'
-    releases = await octokit.request('GET /repos/{owner}/{repo}/releases', {owner: owner, repo: repo, per_page: 100})
-    console.log('Called get releases')
-    //console.log(releases.data, releases.data.length)
+    try{
+        releases = await octokit.request('GET /repos/{owner}/{repo}/releases', {owner: owner, repo: repo, per_page: 100})
+        console.log('Called get releases')
+    }
+    catch (err){
+        console.error(err)
+        setTimeout(getReleases, 1000)
+    }
 }
 
 async function getDownloads(req, res, next){
