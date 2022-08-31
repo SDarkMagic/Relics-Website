@@ -1,33 +1,12 @@
 // Script for the Download page
 
-// Object containing IDs for elements on the page and the download counter key for them
-const elementIDs = {
-    'UOfficialDownloads': 'UOfficial',
-    'NXOfficialDownloads': 'NXOfficial',
-    'UBetaDownloads': 'UBeta',
-    'NXBetaDownloads': 'NXBeta'
-}
-
-// Returns the value in; just needed this for a void callback that would pass data on
-function passData(dataIn){
-    console.warn(dataIn)
-};
-
 // Function for downloading files
 function download(fileName) {
     window.location.href = fileName
 };
 
-// Function for updating the download counters
-function updateDLCounter(dlCountToUpdate){
-  var xhttp = new XMLHttpRequest();
-  console.log(requestJson('./assets/DownloadCounts.json', passData))
-  xhttp.open('POST', './WriteDownloadCounter.php', true)
-  xhttp.setRequestHeader('Content-Type', 'application/json');
-  xhttp.send({"FileName": "./assets/DownloadCounter.json", "JSON": dlCountToUpdate})
-};
 
-// Requests data from a json file serverside
+// Requests data from a json file or api serverside
 function requestJson(fileRequest, callBack) {
     var xhttp = new XMLHttpRequest()
     xhttp.onreadystatechange = function() {
@@ -40,6 +19,7 @@ function requestJson(fileRequest, callBack) {
     xhttp.send()
 }
 
+// Dynamically generates the buttons for the download links based off of the file names
 function setupLinks(files, tag){
     let element, platform
     let links = []
@@ -59,7 +39,7 @@ function setupLinks(files, tag){
     return links.join('')
 }
 
-// Sets the download counter values
+// Sets the downloads
 function setDownloads(downloadsObject) {
     let elements = []
     let downloadContainer = document.getElementById('downloadContainer')
@@ -73,29 +53,7 @@ function setDownloads(downloadsObject) {
     downloadContainer.innerHTML = elements.join('')
 }
 
-// Updates the download counters every second
-
-// Add variables for the buttons
-var officialU = document.getElementById('WiiU_Official');
-var officialNX = document.getElementById('NX_Official');
-var betaU = document.getElementById('WiiU_Beta');
-var betaNX = document.getElementById('NX_Beta');
-
-// Setup event listeners on each button
-function SetupListeners(){
-    // These are the ones for handling the actual file downloads
-    officialU.addEventListener("click", download('WiiU-Release'), false);
-    officialNX.addEventListener("click", download('NX-Release'), false);
-
-    // These are the ones for updating the download counters themselves
-    for (var id in Object.keys(elementIDs)){
-        id = Object.keys(elementIDs)[id]
-        document.getElementById(id).addEventListener('click', updateDLCounter(elementIDs[id]), false)
-      };
-};
-
 // These ones handle updating the download counters
 window.addEventListener('load', () =>{
-    //requestJson('./assets/DownloadCounts.json', setDownloads)
     requestJson('http://api.localtest.me:3000/releases', setDownloads)
 })
