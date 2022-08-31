@@ -21,6 +21,7 @@ class downloads{
             this.localData = {}
         })
         this.localData = JSON.parse(data)
+        this.data = this.localData
         return
     }
 
@@ -34,39 +35,38 @@ class downloads{
 
     async format(){
         let outData = []
-        const data = await this.fetch()
-        //console.log(data)
-        data.forEach(release => {
-            if (release.assets.length >= 1){
-                outData.push({
-                    tag: release.tag_name,
-                    prerelease: release.prerelease,
-                    files: release.assets
-                })
-            }
+        const data = await this.fetch().catch(err => {
+            console.error(err)
+            return null
         })
+        if (data !== null){
+            data.forEach(release => {
+                if (release.assets.length >= 1){
+                    outData.push({
+                        tag: release.tag_name,
+                        prerelease: release.prerelease,
+                        files: release.assets
+                    })
+                }
+            })
+        }
         return outData
     }
 
     async fetch(){
         let owner = 'Relics-Of-The-Past'
         let repo = 'Relics-of-the-Past-Release'
-        try{
-            const data = await octokit.request('GET /repos/{owner}/{repo}/releases', {owner: owner, repo: repo, per_page: 100})
-            console.log('Called get releases')
-            return new Promise((res, rej) => {
-                try {
-                    res(data.data)
-                } catch (err){
-                    rej(err)
-                }
-            })
-        }
-        catch (err){
-            console.error(err)
-            setTimeout(this.fetch, 3000)
-        }
-    }
+        console.log('Called fetch')
+        const data = await octokit.request('GET /repos/{owner}/{repo}/releases', {owner: owner, repo: repo, per_page: 100})
+        return new Promise((res, rej) => {
+            if (data.status !== 200){
+                rej(data)
+            }
+            else{
+                res(data.data)
+            }
+        })
+     }
 
     async load(){
         await this.readLocal()
@@ -75,6 +75,9 @@ class downloads{
     }
 
     async diff(){
+        if (this.localData){
+            this.data = this.localData
+        }
         if (this.remoteData.length >= 1){
             if (this.localData === this.remoteData){
                 this.data = this.localData
@@ -89,14 +92,15 @@ class downloads{
     }
 
     async monitor() {
-        this.diff().then(() => {
+        console.log('Monitoring Releases')
+        this.diff().then(async () => {
             setInterval(this.diff, 1000 * 60 * 60 * 24)
         })
     }
 }
 const releases = new downloads()
-releases.load().then(() => {
-    setInterval(releases.diff, 1000 * 60 * 60 * 24)
+releases.load().then(async () => {
+    await releases.monitor()
 })
 
 async function getDownloads(req, res, next) {
