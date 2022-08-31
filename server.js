@@ -77,30 +77,6 @@ server.get('/:pageName', (req, res) => {
     };
 });
 
-// Sends the official WiiU release build Zip
-server.get('/WiiU-Release', (req, res) => {
-    var file = `${__dirname}/src/assets/ModFiles/WiiU/breathofthewild_relics_of_the_past__e0751.zip`;
-    res.download(file, 'RelicsOfThePast_Official-Release-WiiU.zip');
-});
-
-// Sends the official NX release build Zip
-server.get('/NX-Release', (req, res) => {
-    var file = `${__dirname}/src/assets/ModFiles/NX/relics_of_the_past_v103_switch_.zip`
-    res.download(file, 'RelicsOfThePast_Official-Release-NX.zip')
-});
-
-// Sends the public WiiU Beta Zip
-server.get('/WiiU-Beta_public', (req, res) => {
-    var file = `${__dirname}/src/assets/ModFiles/WiiU`
-    res.download(file, 'RelicsOfThePast_Public-Beta-WiiU.zip')
-});
-
-// Sends the public NX Beta Zip
-server.get('/NX-Beta_public', (req, res) => {
-    var file = `${__dirname}/src/assets/ModFiles/NX`
-    res.download(file, 'RelicsOfThePast_Public-Beta-NX.zip')
-});
-
 // Starts the server
 server.listen(port, 'localhost', () => {
     console.log(`Server started on localhost:${port}`)

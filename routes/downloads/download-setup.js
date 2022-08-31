@@ -36,7 +36,7 @@ class downloads{
     async format(){
         let outData = []
         const data = await this.fetch().catch(err => {
-            console.error(err)
+            console.error(`Failed to fetch release data from server: ${err}`)
             return null
         })
         if (data !== null){
@@ -56,7 +56,7 @@ class downloads{
     async fetch(){
         let owner = 'Relics-Of-The-Past'
         let repo = 'Relics-of-the-Past-Release'
-        console.log('Called fetch')
+        console.log('Fetching from Github API')
         const data = await octokit.request('GET /repos/{owner}/{repo}/releases', {owner: owner, repo: repo, per_page: 100})
         return new Promise((res, rej) => {
             if (data.status !== 200){
@@ -68,21 +68,17 @@ class downloads{
         })
      }
 
-    async load(){
-        await this.readLocal()
-        this.remoteData = await this.format()
-        return
-    }
-
     async diff(){
+        await this.readLocal()
+        const tempData = await this.format()
         if (this.localData){
             this.data = this.localData
         }
-        if (this.remoteData.length >= 1){
-            if (this.localData === this.remoteData){
-                this.data = this.localData
+        if (tempData.length >= 1){
+            if (this.data === tempData){
+                this.data = this.data
             } else {
-                this.data = this.remoteData
+                this.data = tempData
                 await this.writeLocal()
             }
         } else {
@@ -91,17 +87,15 @@ class downloads{
         return
     }
 
-    async monitor() {
+    monitor() {
         console.log('Monitoring Releases')
-        this.diff().then(async () => {
+        this.diff().then(() => {
             setInterval(this.diff, 1000 * 60 * 60 * 24)
         })
     }
 }
 const releases = new downloads()
-releases.load().then(async () => {
-    await releases.monitor()
-})
+releases.monitor()
 
 async function getDownloads(req, res, next) {
     if (releases.data){
