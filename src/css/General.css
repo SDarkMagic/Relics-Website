@@ -90,6 +90,11 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     margin-bottom: 10%;
 }
 
+#ThanksContainer {
+    height: auto;
+    margin-bottom: 10%;
+}
+
 #ErrorPage {
     background-image: url(../assets/SheikahFlowPattern_Grey.png);
     background-repeat: repeat;
@@ -295,6 +300,9 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     border-bottom-right-radius: 15px;
     box-shadow: 15px 15px 15px 2px #525252;
     z-index: -2;
+    font-size: 4vw;
+    font-family: Arial;
+    text-indent: 0%;
 }
 
 .Description .title {
@@ -302,19 +310,30 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .Description p {
-    text-indent: 0%;
     margin: 2%;
+}
+
+.Description h2 {
+    margin: 1%;
+    font-family: KommonGrotesque_Italic;
+    font-size: 5vw;
+}
+
+.Description li {
     font-family: Arial;
-    font-size: 2.5vw;
-    line-height: 3vw;
+    margin-bottom: 1.25%;
 }
 
 @media screen and (min-width: 800px){
-    .Description p {
-        font-size: 20px;
+    .Description h2 {
+        font-size: 35px;
         line-height: 24px;
     }
+    .Description {
+        font-size: 20px;
+    }
 }
+
 
 .aboutImg {
     height: 30vw;
@@ -341,12 +360,6 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .aboutList {
     font-family: Arial;
     font-size: inherit;
-}
-
-.aboutList li {
-    font-family: inherit;
-    font-size: inherit;
-    margin-bottom: 0.5vw;
 }
 
 .memberCard {
@@ -565,14 +578,13 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     display: block;
 }
 
-#trailer {
+.trailer {
     margin: 0px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 2vh;
-    width: 47.61904761904761vw;
-    height: 20.238095238095237vw;
-
+    width: 77vw;
+    height: 45vw;
 }
 
 .trailerContainer {

@@ -41,11 +41,11 @@
         "about": "Hello there, I'm Terukosan I'm a beta tester for Relics of the Past, I got into the project when ShadowMarth was watching me stream Relics randomly one day, I don't really know what else to say, but I really enjoy being a tester on this project and hope to help more one day!",
         "PrimLink": ""
     },
-    "DreamFeather": {
+    "DreamyFeather": {
         "image": "assets/UserIcons/DreamFeather.png",
         "role": "WiiU/Cemu Tester",
-        "about": "I've always been really into combat in Breath of the Wild pretty much what I did most of the time playing the game. I started getting tired of fighting the same enemy camps and used mods to make the game more interesting and that's how I found Relics of the Past.",
-        "PrimLink": "https://www.youtube.com/channel/UCtS8MWNFCFMFbOQGwBTX1WQ"
+        "about": "I love fighting many enemies at once in stratigic ways in Zelda Breath of the Wild.",
+        "PrimLink": "https://youtube.com/channel/UCtS8MWNFCFMFbOQGwBTX1WQ"
     },
     "KirbyDaGamerPuff": {
         "image": "assets/UserIcons/Kirby.png",
@@ -53,23 +53,23 @@
         "about": "Things may be hard, but success makes it that much more gratifying",
         "PrimLink": "https://www.twitch.tv/kirbydagamerpuff"
     },
-    "JWDragair": {
-        "image": "assets/UserIcons/JWDragair.png",
+    "ItsThalia": {
+        "image": "assets/UserIcons/ItsThalia.png",
         "role": "Section Editor",
-        "about": "Hi, I'm JW. Zelda is my favorite game series, and I'm super into Kaizo Mario. Remember when Nintendo games were super hard? I remember. Breath of the Wild was hard, but not *quite* hard enough. Step into my desert and feel the harsh sun beat down upon your brow. The dangers are many, and you are never safe. But maybe you'll find some goodies on your way ;) also, like, tell me what you think this is my first botw mod project lol",
-        "PrimLink": "https://www.twitch.tv/JWDragair"
+        "about": "Hi! I'm responsible for the desert and a couple other fun ideas :) I like scavenger hunts and hiding things, so make sure you're keeping an eye out for stuff that doesn't belong in my sections ;)",
+        "PrimLink": ""
     },
     "Ribbajack": {
         "image": "assets/UserIcons/Ribbajack.png",
         "role": "Section Editor",
-        "about": "Hi! I'm Ribbajack and I'm a section editor and game crasher extraordinaire. Currently on a quest to learn everything there is to know about modding BOTW.",
+        "about": "Retired from the project currently, I helped with editing Eventide Island and created some textures for boss variants, as well as a few other miscellaneous changes.",
         "PrimLink": "https://theribbajack.tumblr.com/"
     },
     "Quantum": {
         "image": "assets/UserIcons/Quantum.png",
-        "role": "Section Editor",
-        "about": "I'm impressively average at everything I do.",
-        "PrimLink": "https://twitch.tv/Just_Quantum23"
+        "role": "Senior Team lead",
+        "about": "Your local multidimensional being.",
+        "PrimLink": "https://www.twitch.tv/Just_Quantum23"
     },
     "CrimsonStarfall": {
         "image": "assets/UserIcons/CrimsonStarfall.png",
@@ -79,9 +79,14 @@
     },
     "JaySkilling": {
         "image": "assets/UserIcons/JaySkilling.png",
+        "role": "Senior Team lead",
+        "about": "Digging hyrules caves in my free time",
+        "PrimLink": "https://youtube.com/JaySkilling"
+    },
+    "PerlDude": {
         "role": "Section Editor",
-        "about": "Computer Science Nerd that is tackling BOTW modding now",
-        "PrimLink": "https://www.twitch.tv/jayskilling"
+        "about": "Huge Relics fan!",
+        "PrimLink": ""
     },
     "Sky_Dragon": {
         "image": "assets/UserIcons/Sky_Dragon.png",

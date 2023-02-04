@@ -55,6 +55,7 @@ function formatMemberData(team, Member, isEven) {
     var align;
     var formattedHTML;
     var uniqueImgID = 0;
+    let userImage = 'assets/noMemberIco.png';
     if (isEven == true) {
         align = 'left'
     }
@@ -68,9 +69,12 @@ function formatMemberData(team, Member, isEven) {
         uniqueImgID = uniqueImgID
     }
     IdList.push(uniqueImgID)
+    if (team[Member]["image"]){
+        userImage = team[Member]['image']
+    }
     formattedHTML = `<div class="memberCard ${align}">
         <a href='${team[Member]["PrimLink"]}'>
-            <img src='${team[Member]["image"]}' class="memberImg" title="${memberName}" id="${uniqueImgID}" onerror="imgFail(${uniqueImgID}, 'assets/noMemberIco.png')" alt="${member}">
+            <img src='${userImage}' class="memberImg" title="${memberName}" id="${uniqueImgID}" onerror="imgFail(${uniqueImgID}, 'assets/noMemberIco.png')" alt="${member}">
         </a>
         <div class="text">
             <h1 class='memberName'>${memberName}</h1>
