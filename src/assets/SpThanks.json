@@ -10,5 +10,29 @@
         "reason": "Relic's Theatrical Trailer",
         "about":  "Editor",
         "PrimLink": "https://youtube.com/c/OVERSKYO"
+    },
+    "Ginger": {
+        "image": "assets/UserIcons/Ginger.png",
+        "reason": "Background Modding Knowledge",
+        "about": "Audio/lighting/computer/electrical engineer. Writer/editor of tools. Sufferer of a chronic case of chocolate milk deficiency.",
+        "PrimLink": "https://github.com/GingerAvalanche"
+    },
+    "Sucrose": {
+        "image": "assets/UserIcons/Sucrose.jpg",
+        "reason": "Relic's Thumbnail Image",
+        "about": "I make art and things for cool YouTubers (and BotW modders!). I like Zelda a very normal amount. <i>dabs on you</i>",
+        "PrimLink": "https://twitter.com/sssucrose"
+    },
+    "Korokii": {
+        "image": "assets/UserIcons/Korokii.jpeg",
+        "reason": "Relic's Theatrical Trailer",
+        "about": "I have spent over 1,000 hours in Relics of the Past and have done a variety of damageless challenges including Trial of the Sword, Purge of Darkness, Eventide Island, and even the entirety of Relics of the Past (spliced) damageless. I also tryhard in the combat department of Breath of the Wild :)",
+        "PrimLink": "https://www.youtube.com/channel/UC4n4A8LSjXwOQQ-XSawCuQw"
+    },
+    "Arch Leaders": {
+        "image": "assets/UserIcons/ArchLeaders.png",
+        "reason": "Baked Collision Platform Conversion Tool",
+        "about": "I make tools to make mods for a game I never play.",
+        "PrimLink": "https://github.com/ArchLeaders"
     }
 }
