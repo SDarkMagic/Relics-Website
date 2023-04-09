@@ -6,13 +6,13 @@ import ftplib
 import datetime
 import discord
 import asyncio
+import os
+from dotenv import load_dotenv
 
 async def sendDiscordUpdate(articleName, authorName):
     bot = discord.Client()
-    with open('privars.json', 'rt') as readEnv:
-        data = json.loads(readEnv.read()).get('Discord')
-        token = data.get('Token')
-        channelId = int(data.get('Channel'))
+    token = os.getenv("DISCORD_TOKEN")
+    channelId = int(os.getenv("DISCORD_CHANNEL_ID"))
 
     @bot.event
     async def on_ready():
@@ -62,10 +62,8 @@ def writeCurrentNews(title, author):
         writeNewsJson.write(json.dumps(newsData, indent=2))
 
 def uploadNewsFiles(fileName, fileObj):
-    with open('privars.json', 'rt') as readCredentials:
-        credentials = json.loads(readCredentials.read())['ftpDetails']
-    ftp = ftplib.FTP(credentials.get('host'))
-    ftp.login(user=credentials.get('user'), passwd=credentials.get('password'))
+    ftp = ftplib.FTP(os.getenv("FTP_HOST"))
+    ftp.login(user=os.getenv("FTP_USERNAME"), passwd=os.getenv("FTP_PASSWORD"))
     ftp.storbinary(f'STOR {fileName}', open(fileObj, 'rb'))
     print(f'Successfully transferred {fileName} to the server!')
     try:
